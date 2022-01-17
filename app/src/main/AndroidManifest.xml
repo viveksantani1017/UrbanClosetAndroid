@@ -10,22 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
         <activity
-            android:name=".SignUp"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:name=".login"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SignUp"
+            android:exported="false">
+
         </activity>
         <activity
             android:name=".singupscreen"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

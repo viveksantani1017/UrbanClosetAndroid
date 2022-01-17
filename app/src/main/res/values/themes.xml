@@ -31,4 +31,7 @@
 
 
     </style>
+    <style name="textview_style" parent="android:Widget.TextView">
+        <item name="android:textColor">@color/black</item>
+    </style>
 </resources>
