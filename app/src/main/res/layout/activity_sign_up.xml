@@ -1,181 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp">
 
-    <FrameLayout
-        android:id="@+id/background"
+    <ImageView
+        android:id="@+id/imglogo"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        android:layout_marginStart="30sp"
+        android:layout_marginTop="50sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_uccolor" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etemail"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:background="@drawable/blue_bg">
-
-        <ImageView
-            android:id="@+id/uclogo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="25dp"
-            android:src="@drawable/uclogo" />
-    </FrameLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        >
+        app:layout_constraintTop_toBottomOf="@id/imglogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:hint="Enter Email Address"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <TextView
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="190dp"
-            android:layout_marginEnd="62dp"
-            android:gravity="center"
-            android:text="Create Your Account"
-            android:textAlignment="center"
-            android:textColor="#5252ed"
-            android:textSize="25dp" />
+            android:focusedByDefault="false"
+            android:inputType="textEmailAddress"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etusername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etemail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:hint="Enter UserName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <!--Email-->
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="240dp"
-            android:layout_marginEnd="62dp"
-            android:background="@drawable/blue_border_rounded_cornwe">
-
-            <EditText
-                android:id="@+id/etemail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imgemail"
-                android:background="@android:color/transparent"
-                android:hint="Enter Email Address"
-                android:inputType="textEmailAddress"
-                android:paddingStart="17dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:textColor="@color/black"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:textSize="15dp" />
-
-            <ImageView
-                android:id="@+id/imgemail"
-                android:layout_width="23dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="17dp"
-                android:src="@drawable/email" />
-        </RelativeLayout>
-        <!--Username-->
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="310dp"
-            android:layout_marginEnd="62dp"
-            android:background="@drawable/blue_border_rounded_cornwe">
-
-            <EditText
-                android:id="@+id/etusername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imgusername"
-                android:background="@android:color/transparent"
-                android:hint="Enter UserName"
-                android:inputType="text"
-                android:paddingStart="17dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:textColor="@color/black"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:textSize="15dp" />
-
-            <ImageView
-                android:id="@+id/imgusername"
-                android:layout_width="24dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="17dp"
-                android:src="@drawable/username" />
-        </RelativeLayout>
-        <!--Password-->
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="380dp"
-            android:layout_marginEnd="62dp"
-            android:background="@drawable/blue_border_rounded_cornwe">
-
-            <EditText
-                android:id="@+id/etpassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imgpassword"
-                android:background="@android:color/transparent"
-                android:hint="Enter Password"
-                android:inputType="textPassword"
-                android:paddingStart="17dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:textColor="@color/black"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:textSize="15dp" />
-
-            <ImageView
-                android:id="@+id/imgpassword"
-                android:layout_width="23dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="17dp"
-                android:src="@drawable/password" />
-        </RelativeLayout>
-        <!--PhoneNumber-->
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="62dp"
-            android:layout_marginTop="450dp"
-            android:layout_marginEnd="62dp"
-            android:background="@drawable/blue_border_rounded_cornwe">
-
-            <EditText
-                android:id="@+id/etphonenumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/imgphonenumber"
-                android:background="@android:color/transparent"
-                android:hint="Enter Mobile Number"
-                android:inputType="phone"
-                android:paddingStart="17dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:textColor="@color/black"
-                android:textCursorDrawable="@drawable/cursor_color"
-                android:textSize="15dp" />
-
-            <ImageView
-                android:id="@+id/imgphonenumber"
-                android:layout_width="24dp"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="17dp"
-                android:src="@drawable/phone" />
-        </RelativeLayout>
-        <Button
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginStart="150dp"
-            android:layout_marginTop="520dp"
-            android:layout_marginEnd="150dp"
-            android:background="@drawable/blue_fill__rounded_color"
-            android:gravity="center"
-            android:text="SignUp" />
-    </RelativeLayout>
+            android:focusedByDefault="false"
+            android:inputType="text"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-</RelativeLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etusername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:hint="Enter Password"
+        app:startIconDrawable="@android:drawable/picture_frame"
+        app:endIconMode="password_toggle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusedByDefault="false"
+            android:inputType="textPassword"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etphonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/etpassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:hint="Enter PhoneNumber"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusedByDefault="false"
+            android:inputType="phone"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
