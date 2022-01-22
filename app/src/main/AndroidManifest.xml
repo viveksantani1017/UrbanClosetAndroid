@@ -10,8 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
         <activity
+            android:name=".cart"
+            android:exported="false" />
+        <activity
             android:name=".login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,15 +23,13 @@
         </activity>
         <activity
             android:name=".SignUp"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".singupscreen"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>
