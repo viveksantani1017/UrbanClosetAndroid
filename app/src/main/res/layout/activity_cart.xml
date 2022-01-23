@@ -13,6 +13,7 @@
         android:elevation="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.073">
@@ -92,7 +93,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_delete"
-            style="@style/Widget.AppCompat.Button.Borderless"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="61dp"
             android:layout_height="20dp"
             android:layout_marginStart="10sp"
@@ -105,15 +106,14 @@
             android:text="@string/delete"
             android:textColor="#ff0000"
             app:layout_constraintStart_toEndOf="@id/productimage"
-            app:layout_constraintTop_toBottomOf="@+id/quantity"
-            app:strokeColor="@color/design_default_color_primary" />
+            app:layout_constraintTop_toBottomOf="@+id/quantity" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_update_cart"
             style="?attr/borderlessButtonStyle"
             android:layout_width="114dp"
             android:layout_height="20dp"
-            android:layout_marginStart="20sp"
+            android:layout_marginStart="10sp"
             android:layout_marginTop="20sp"
             android:insetLeft="0sp"
             android:insetTop="0sp"
