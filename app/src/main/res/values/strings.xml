@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">UrbanCloset</string>
+    <string name="quantity">Quantity :-</string>
+    <string name="price">price :-</string>
+    <string name="size_m">"size :- "</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_image">Product Image</string>
+    <string name="update_cart">Update Cart</string>
+    <string name="delete">Delete</string>
 </resources>

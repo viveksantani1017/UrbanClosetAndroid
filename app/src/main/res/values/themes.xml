@@ -28,8 +28,6 @@
         <item name="backgroundTint">#ffffff</item>
         <item name="android:textColor">@color/black</item>
 
-
-
     </style>
     <style name="textview_style" parent="android:Widget.TextView">
         <item name="android:textColor">@color/black</item>
