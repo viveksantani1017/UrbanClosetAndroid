@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.LoginScreen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
+        <item name="actionBarStyle">@style/abc</item>
+        <item name="actionBarTheme">@style/Widget.MaterialComponents.ActionBar.Primary</item>
         <item name="colorPrimary">#5252ed</item>
         <item name="colorPrimaryVariant">#5252ed</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -22,15 +24,24 @@
         <item name="android:textColor"></item>
     </style>
 
+    <style name="cardtile">
+        <item name="background">@drawable/carttile</item>
+        <item name="elevation">10sp</item>
+    </style>
+
     <style name="button_style"
         parent="Widget.MaterialComponents.Button">
         <item   name="android:background">@drawable/button</item>
         <item name="backgroundTint">#ffffff</item>
         <item name="android:textColor">@color/black</item>
-
     </style>
 
     <style name="textview_style" parent="android:Widget.TextView">
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="abc" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="titleTextColor">@color/black</item>
+
     </style>
 </resources>
