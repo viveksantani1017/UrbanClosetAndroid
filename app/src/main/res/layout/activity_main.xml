@@ -29,7 +29,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20sp"
         app:pageColor="#00000000"
         app:radius="4dp"
         app:slideInterval="3000"
@@ -100,7 +99,7 @@
                     android:id="@+id/tv_men_product_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SLIM FIT\nT-SHIRT"
+                    android:text="SLIM FIT  \nT-SHIRT"
                     android:textAppearance="?attr/textAppearanceHeadline6"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="@id/tv_men_product_price"
@@ -601,7 +600,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="Scroll To Top"
         app:cornerRadius="30sp"
-        app:icon="@android:drawable/arrow_up_float"
+        app:icon="@drawable/ic_arrow_upward_black_18dp"
+        app:iconTint="?colorPrimary"
+        android:backgroundTint="?colorOnPrimary"
+        android:textColor="?colorPrimary"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
