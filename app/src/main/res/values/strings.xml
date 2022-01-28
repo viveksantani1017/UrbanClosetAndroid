@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">UrbanCloset</string>
-    <string name="mens_collection">MENS COLLECTION</string>
-    <string name="womens_collection">WOMENS COLLECTION</string>
-    <string name="newest_collection">NEWEST COLLECTION</string>
 </resources>
