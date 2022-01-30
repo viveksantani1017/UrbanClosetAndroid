@@ -3,4 +3,8 @@
     <string name="mens_collection">MENS COLLECTION</string>
     <string name="womens_collection">WOMEN COLLECTION</string>
     <string name="newest_collection">NEWEST COLLECTION</string>
+    <string name="size">size</string>
+    <string name="price">Price</string>
+    <string name="productname">productname</string>
+    <string name="quantity">Quantity</string>
 </resources>

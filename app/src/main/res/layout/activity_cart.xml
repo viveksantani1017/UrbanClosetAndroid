@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:layout_marginTop="10sp"
-                android:text="productname"
+                android:text="@string/productname"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 app:layout_constraintStart_toEndOf="@+id/productimage"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:layout_marginTop="10sp"
-                android:text="@string/size_m"
+                android:text="@string/size"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintStart_toEndOf="@+id/productimage"
@@ -83,8 +83,7 @@
                     android:layout_width="250sp"
                     android:layout_height="40sp"
                     android:layout_marginStart="10sp"
-                    android:layout_marginTop="10sp"
-                    />
+                    android:layout_marginTop="10sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
