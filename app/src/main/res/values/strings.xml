@@ -7,4 +7,7 @@
     <string name="price">Price</string>
     <string name="productname">productname</string>
     <string name="quantity">Quantity</string>
+    <string name="delete">delete</string>
+    <string name="updatecart">updatecart</string>
+    <string name="product_image">Product Image</string>
 </resources>
