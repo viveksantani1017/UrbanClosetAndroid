@@ -136,7 +136,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvlogin"
+        app:layout_constraintBottom_toTopOf="@id/tvsignup"
         app:layout_constraintTop_toBottomOf="@+id/etphonenumber"
         android:layout_marginStart="20sp"
         android:layout_marginTop="20sp"
@@ -144,7 +144,7 @@
         android:text="SignUp"
         />
         <TextView
-            android:id="@+id/tvlogin"
+            android:id="@+id/tvsignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="@id/btnlogin"

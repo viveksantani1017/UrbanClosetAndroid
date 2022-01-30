@@ -2,7 +2,9 @@ package com.example.loginscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.ScrollView
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
 
@@ -15,7 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+//        var scrollview = findViewById<ScrollView>(R.id.scrollView) as ScrollView
+//        var btnscroll = findViewById<Button>(R.id.btnscroll)
+//        btnscroll.setOnClickListener {
+//            scrollview.scrollTo(0,0)
+//        }
         val carouselView = findViewById(R.id.carouselView) as CarouselView;
         carouselView.setPageCount(sampleImages.size);
         carouselView.setImageListener(imageListener);
