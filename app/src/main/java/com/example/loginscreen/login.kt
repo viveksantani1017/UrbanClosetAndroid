@@ -56,10 +56,12 @@ class login : AppCompatActivity() {
             return
         CoroutineScope(Dispatchers.IO).launch {
             if (authenticate(username, password)) {
+
                 val jsonObject = JSONObject()
+                Log.i("Uerid",jsonObject.getString("value"))
                 val pref = getSharedPreferences("UrbanCloset", MODE_PRIVATE)
                 val prefEditor = pref.edit()
-                prefEditor.putInt("UserID", jsonObject.getString("value").toInt())
+                prefEditor.putString("UserID", jsonObject.getString("value"))
                 withContext(Dispatchers.Main) {
                     val intent = Intent(this@login, MainActivity::class.java)
                     startActivity(intent)
@@ -75,7 +77,7 @@ class login : AppCompatActivity() {
     }
 
     private fun authenticate(username: String, password: String): Boolean {
-        val url = URL("https://192.168.58.37:8084/UrbanClosetApache/users")
+        val url = URL("http://192.168.240.37:8084/UrbanClosetApache/users")
         val connection = (url.openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"
             doInput = true
