@@ -55,18 +55,22 @@ class login : AppCompatActivity() {
         if (username.isEmpty() || password.isEmpty())
             return
         CoroutineScope(Dispatchers.IO).launch {
-            if (authenticate(username, password)) {
+            var userid = authenticate(username, password)
+            if ( userid > 0) {
 
                 val jsonObject = JSONObject()
-                Log.i("Uerid",jsonObject.getString("value"))
                 val pref = getSharedPreferences("UrbanCloset", MODE_PRIVATE)
                 val prefEditor = pref.edit()
-                prefEditor.putString("UserID", jsonObject.getString("value"))
+
+                prefEditor.putInt("UserID", userid)
+                prefEditor.apply()
+
                 withContext(Dispatchers.Main) {
                     val intent = Intent(this@login, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 }
+
             } else {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@login, "Wrong Info", Toast.LENGTH_SHORT).show()
@@ -76,8 +80,8 @@ class login : AppCompatActivity() {
         }
     }
 
-    private fun authenticate(username: String, password: String): Boolean {
-        val url = URL("http://192.168.240.37:8084/UrbanClosetApache/users")
+    private fun authenticate(username: String, password: String): Int {
+        val url = URL("http://192.168.24.37:8084/UrbanClosetApache/users")
         val connection = (url.openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"
             doInput = true
@@ -100,13 +104,13 @@ class login : AppCompatActivity() {
                 val reader = connection.inputStream.bufferedReader()
                 val jsonResponseString = reader.readText()
                 val responseJson = JSONObject(jsonResponseString)
-                return responseJson.getBoolean("status")
+                return responseJson.getInt("value")
             }
         } catch (Ex: Exception) {
             Log.i("Error", Ex.message.toString())
         } finally {
             connection.disconnect()
         }
-        return false
+        return 0
     }
 }
