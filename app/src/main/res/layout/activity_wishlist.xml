@@ -84,7 +84,7 @@
                 android:padding="0sp"
                 app:icon="@android:drawable/ic_menu_search"
                 app:iconSize="20sp"
-                android:text="@string/updatecart"
+                android:text="@string/update_wishlist"
                 app:layout_constraintTop_toBottomOf="@+id/price"
                 app:layout_constraintStart_toEndOf="@+id/productimage"
                 tools:ignore="TouchTargetSizeCheck" />

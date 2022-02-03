@@ -11,4 +11,5 @@
     <string name="updatecart">Update Cart</string>
     <string name="product_image">Product Image</string>
     <string name="categoryname">Category Name</string>
+    <string name="update_wishlist">update wishlist</string>
 </resources>
