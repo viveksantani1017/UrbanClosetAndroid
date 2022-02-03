@@ -18,18 +18,15 @@
     <style name="EditTextCustomHolo" parent="android:Widget.EditText">
 <!--        <item name="android:textColor">#0000ff</item>-->
         <item name="cornerRadius">10sp</item>
-        <item name="android:background">#ffffff</item>
+        <item name="android:background">#c0c0c0</item>
         <item name="android:textColor"></item>
     </style>
 
     <style name="button_style"
         parent="Widget.MaterialComponents.Button">
         <item   name="android:background">@drawable/button</item>
-        <item name="backgroundTint">#ffffff</item>
+        <item name="backgroundTint">#c0c0c0</item>
         <item name="android:textColor">@color/black</item>
-
-
-
     </style>
     <style name="textview_style" parent="android:Widget.TextView">
         <item name="android:textColor">@color/black</item>

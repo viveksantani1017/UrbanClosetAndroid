@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <View
+        android:id="@+id/backgorundimg"
+        android:layout_width="match_parent"
+        android:layout_height="280sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/proflie"
+        android:alpha="0.6"
+        />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userimg"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="180sp"
+        android:src="@drawable/proflie"
+        android:elevation="20sp"
+        />
+    <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20sp"
+            app:cardElevation="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="10sp"
+            >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"> <!-- Media -->
+            <TextView
+                android:id="@+id/tvname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="50sp"
+                android:text="Name"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Doe"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/tvname" />
+
+            <TextView
+                android:id="@+id/tvemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Email Address"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/etname" />
+
+            <EditText
+                android:id="@+id/etemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/background_light"
+                android:text="johndoe@gmail.com"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/tvemail" />
+
+            <TextView
+                android:id="@+id/tvphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="Phone Number"
+                android:textSize="18sp"
+
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/etemail" />
+
+            <EditText
+                android:id="@+id/etphone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="1234567890"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/tvphone" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:text="Edit"
+                app:icon="@android:drawable/ic_menu_edit"
+                app:iconSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/etphone" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--        Buttons-->
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

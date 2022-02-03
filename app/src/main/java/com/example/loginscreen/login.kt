@@ -81,7 +81,7 @@ class login : AppCompatActivity() {
     }
 
     private fun authenticate(username: String, password: String): Int {
-        val url = URL("http://192.168.24.37:8084/UrbanClosetApache/users")
+        val url = URL("http://192.168.45.37:8084/UrbanClosetApache/users")
         val connection = (url.openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"
             doInput = true

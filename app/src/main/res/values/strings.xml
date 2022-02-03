@@ -11,4 +11,8 @@
     <string name="updatecart">Update Cart</string>
     <string name="product_image">Product Image</string>
     <string name="categoryname">Category Name</string>
+    <string name="profile_details">Profile Details</string>
+    <string name="email_address">EMAIL ADDRESS</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="address">ADDRESS</string>
 </resources>
