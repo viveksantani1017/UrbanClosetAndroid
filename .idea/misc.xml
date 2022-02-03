@@ -5,11 +5,12 @@
       <map>
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/drawable/carttile.xml" value="0.26614583333333336" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/drawable/photo.xml" value="0.26197916666666665" />
-        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_cart.xml" value="0.22" />
+        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_cart.xml" value="0.264" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_productlist.xml" value="0.2" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
-        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_wishlist.xml" value="0.4621359223300971" />
+        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_wishlist.xml" value="0.4" />
         <entry key="..\:/Projects/Android/loginscreen/app/src/main/res/drawable/button.xml" value="0.26614583333333336" />
         <entry key="..\:/Projects/Android/loginscreen/app/src/main/res/drawable/edittextbox.xml" value="0.2064814814814815" />
         <entry key="..\:/Projects/Android/loginscreen/app/src/main/res/drawable/login_box.xml" value="0.22777777777777777" />
@@ -22,11 +23,9 @@
         <entry key="..\:/androidproject/app/src/main/res/drawable/ic_uccolor.xml" value="0.26614583333333336" />
         <entry key="..\:/androidproject/app/src/main/res/drawable/ic_uclogosvg_svg.xml" value="0.26614583333333336" />
         <entry key="..\:/androidproject/app/src/main/res/drawable/password.xml" value="0.26614583333333336" />
-        <entry key="..\:/androidproject/app/src/main/res/layout/activity_cart.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/androidproject/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/androidproject/app/src/main/res/layout/activity_profile.xml" value="0.176" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_singupscreen.xml" value="0.5223068552774756" />
         <entry key="..\:/androidproject/app/src/main/res/layout/app_bar_home.xml" value="0.24635416666666668" />
