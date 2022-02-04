@@ -26,11 +26,14 @@
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/activity_profile.xml" value="0.24635416666666668" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_singupscreen.xml" value="0.5223068552774756" />
         <entry key="..\:/androidproject/app/src/main/res/layout/app_bar_home.xml" value="0.24635416666666668" />
         <entry key="..\:/androidproject/app/src/main/res/layout/content_home.xml" value="0.24635416666666668" />
         <entry key="..\:/androidproject/app/src/main/res/layout/fragment_gallery.xml" value="0.24635416666666668" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/order_list.xml" value="0.24635416666666668" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/product_grid.xml" value="0.176" />
         <entry key="..\:/androidproject/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
       </map>
     </option>
