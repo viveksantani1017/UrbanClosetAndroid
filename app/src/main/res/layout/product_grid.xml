@@ -34,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
+        android:textSize="15sp"
         android:text="Product Name"
         style="@style/TextAppearance.AppCompat.Body2"
         />
