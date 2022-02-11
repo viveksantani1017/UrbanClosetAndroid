@@ -12,6 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.*
+import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
 import java.net.HttpURLConnection
@@ -55,6 +56,7 @@ class login : AppCompatActivity() {
         if (username.isEmpty() || password.isEmpty())
             return
         CoroutineScope(Dispatchers.IO).launch {
+
             var userid = authenticate(username, password)
             if ( userid > 0) {
 
@@ -81,7 +83,7 @@ class login : AppCompatActivity() {
     }
 
     private fun authenticate(username: String, password: String): Int {
-        val url = URL("http://192.168.45.37:8084/UrbanClosetApache/users")
+        val url = URL("http://192.168.102.37:8084/UrbanClosetApache/users")
         val connection = (url.openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"
             doInput = true
@@ -112,5 +114,36 @@ class login : AppCompatActivity() {
             connection.disconnect()
         }
         return 0
+    }
+    private fun fetchData(): String? {
+        val url = URL("http://192.168.102.37:8084/UrbanClosetApache/users")
+        val connection = (url.openConnection() as HttpURLConnection).apply {
+            requestMethod = "GET"
+            doOutput = true
+            setRequestProperty("Content-Type", "Application/json")
+            setChunkedStreamingMode(0)
+        }
+        try {
+
+//                reading the response data
+            if(connection.responseCode == HttpURLConnection.HTTP_OK) {
+                val reader = connection.inputStream.bufferedReader()
+                val jsonResponseString = reader.readText()
+                val responseJson = JSONArray(jsonResponseString)
+                return responseJson.getString(1)
+            }
+            else
+            {
+                Log.i("Error","Contact Meet Sir")
+            }
+        }
+        catch (ex:Exception)
+        {
+            Log.i("Fetch data error",ex.toString())
+        }
+        finally {
+            connection.disconnect()
+        }
+        return null
     }
 }

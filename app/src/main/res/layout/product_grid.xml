@@ -3,7 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="10sp"
+    android:elevation="20sp"
+    android:layout_marginBottom="10dp"
     >
 <LinearLayout
     android:layout_width="match_parent"
@@ -12,7 +13,7 @@
     android:padding="15dp"
     >
     <ImageView
-        android:id="@+id/img_men_product"
+        android:id="@+id/productimage"
         android:layout_width="150dp"
         android:layout_height="210dp"
         android:contentDescription="desc"
@@ -23,6 +24,7 @@
         app:layout_constraintBottom_toTopOf="@id/tv_men_category"
         app:srcCompat="@drawable/firstproduct1"/>
     <TextView
+        android:id="@+id/tvproductcolor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
@@ -31,6 +33,7 @@
         android:textSize="10sp"
         />
     <TextView
+        android:id="@+id/tvproductname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5sp"
@@ -39,6 +42,7 @@
         style="@style/TextAppearance.AppCompat.Body2"
         />
     <TextView
+    android:id="@+id/tvproductprice"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="2000"
