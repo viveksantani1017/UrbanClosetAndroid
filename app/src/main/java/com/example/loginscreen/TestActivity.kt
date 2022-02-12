@@ -1,19 +1,12 @@
 package com.example.loginscreen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import android.widget.GridView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.adapters.ProductGridAdapter
 import com.example.loginscreen.api.Productapi
 import kotlinx.coroutines.*
-import org.json.JSONArray
-import org.json.JSONObject
-import java.lang.Exception
-import java.net.HttpURLConnection
-import java.net.URL
 
 class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,48 +14,34 @@ class TestActivity : AppCompatActivity() {
         setContentView(R.layout.activity_test)
 
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
+        grdProducts.setOnItemClickListener { _, view, _, _ ->
+            val productId = view.contentDescription.toString().toInt()
+            val product = Productapi.getProduct(productId)
+        }
 
         CoroutineScope(Dispatchers.IO).launch {
             val products = Productapi.getAll()
-            if (products.isNotEmpty())
-            {
+            if (products.isNotEmpty()) {
 
                 for (product in products)
                     Productapi.downloadImage(this@TestActivity, product)
                 // val adapter = ProductListAdapter(this@MainActivity, products)
                 // withContext(Dispatchers.Main) { lstProducts.adapter = adapter }
 
+
                 val adapter = ProductGridAdapter(this@TestActivity, products)
                 withContext(Dispatchers.Main) { grdProducts.adapter = adapter }
-            }
-            else
-            {
-                withContext(Dispatchers.Main){
-                    Toast.makeText(this@TestActivity, "Empty Product Array", Toast.LENGTH_SHORT).show()
+            } else {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@TestActivity, "Empty Product Array", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
-    }
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //        var btnfetchdata = findViewById<Button>(R.id.btnfetchdata)
+        //        var btnfetchdata = findViewById<Button>(R.id.btnfetchdata)
 //
 //        btnfetchdata.setOnClickListener {
 //            CoroutineScope(Dispatchers.IO).launch {

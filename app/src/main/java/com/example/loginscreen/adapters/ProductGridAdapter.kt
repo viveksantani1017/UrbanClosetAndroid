@@ -28,16 +28,20 @@ class ProductGridAdapter(
             viewHolder.name = view.findViewById(R.id.tvproductname)
             viewHolder.price = view.findViewById(R.id.tvproductprice)
             viewHolder.image = view.findViewById(R.id.productimage)
-            viewHolder.catname = view.findViewById(R.id.tvproductcolor)
+            viewHolder.catname = view.findViewById(R.id.tvcategoryname)
             view.tag = viewHolder
         }
         else
+        {
             viewHolder = view.tag as ViewHolder
+        }
 
         viewHolder.name.text = objects[position].name
         viewHolder.price.text = objects[position].price.toString()
         viewHolder.catname.text = objects[position].categoryname
         viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}${objects[position].imagePath}"))
+
+        view?.contentDescription = objects[position].id.toString()
 
         return view!!
     }
