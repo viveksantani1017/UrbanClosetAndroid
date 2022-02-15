@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestActivity"
-    android:layout_marginHorizontal="10sp"
-    android:scrollbars="none"
+    tools:context=".ProductListActivity"
+    android:background="#f5f5f5"
     >
 
     <GridView
@@ -16,8 +15,11 @@
         android:horizontalSpacing="10dp"
         android:stretchMode="columnWidth"
         android:gravity="center"
-        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="10sp"
+        android:paddingVertical="10sp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

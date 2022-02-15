@@ -14,7 +14,7 @@ import java.net.URL
 
 class Productapi {
     companion object {
-        private val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
+        val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
 
         internal fun getAll(): Array<Product> {
             val productList = arrayListOf<Product>()
@@ -64,18 +64,18 @@ class Productapi {
 
             try {
                 val cacheDirPath = context.externalCacheDir!!.absolutePath
-                val imageDirPath = "${cacheDirPath}/images"
+                val imageDirPath = "${cacheDirPath}/images/"
 
                 val imageDir = File(imageDirPath)
                 if (!imageDir.exists())
-                    imageDir.mkdir()
+                    imageDir.mkdirs()
 
-                val imageSavePath = FileOutputStream("${cacheDirPath}${product.imagePath}")
+                val imageSavePath = FileOutputStream("${imageDirPath}${product.imagePath}")
 
                 connection.connect()
                 if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                     val bitmap = BitmapFactory.decodeStream(connection.inputStream)
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, imageSavePath)
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 30, imageSavePath)
                 }
             } catch (ex: Exception) {
                 Log.e("downloadImage", ex.message!!)

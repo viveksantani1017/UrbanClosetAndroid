@@ -15,14 +15,15 @@
         app:layout_constraintBottom_toTopOf="@id/tvwelcome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/accountsignupart" />
+        app:srcCompat="@drawable/accountsignupart"
+        android:contentDescription="@string/signup_image" />
 
     <TextView
         android:id="@+id/tvwelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Create Your Account"
+        android:text="@string/create_your_account"
         style="@style/textview_style"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -49,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"
-            android:hint="Enter Email Address"
+            android:hint="@string/EmailHint"
             app:boxStrokeColor="?colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +60,6 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusedByDefault="false"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -73,14 +73,13 @@
         android:layout_marginStart="20sp"
         android:layout_marginEnd="20sp"
         app:boxStrokeColor="?colorPrimary"
-        android:hint="Enter UserName"
+        android:hint="@string/UsernameHint"
         app:startIconDrawable="@drawable/user"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusedByDefault="false"
             android:inputType="text"
             />
     </com.google.android.material.textfield.TextInputLayout>
@@ -95,17 +94,23 @@
         android:layout_marginTop="20sp"
         android:layout_marginStart="20sp"
         android:layout_marginEnd="20sp"
-        android:hint="Enter Password"
+        android:hint="@string/PasswordHint"
         app:endIconMode="password_toggle"
         app:startIconDrawable="@drawable/password"
         app:boxStrokeColor="?colorPrimary"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="Required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:counterEnabled="true"
+        app:counterMaxLength="16"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusedByDefault="false"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:maxLength="16"
+            />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etphonenumber"
@@ -118,15 +123,20 @@
         android:layout_marginStart="20sp"
         android:layout_marginEnd="20sp"
         app:boxStrokeColor="?colorPrimary"
-        android:hint="Enter PhoneNumber"
+        android:hint="@string/PhoneNumberHint"
         app:startIconDrawable="@drawable/phone"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:helperText="Required"
+        app:helperTextTextColor="@android:color/holo_red_dark"
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusedByDefault="false"
-            android:inputType="phone"
+            android:inputType="number"
+            android:maxLength="10"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -141,7 +151,7 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="20sp"
         android:layout_marginEnd="20sp"
-        android:text="SignUp"
+        android:text="@string/BtnSignUpHint"
         />
         <TextView
             android:id="@+id/tvsignup"
@@ -150,7 +160,7 @@
             app:layout_constraintEnd_toEndOf="@id/btnlogin"
             app:layout_constraintStart_toStartOf="@id/btnlogin"
             app:layout_constraintTop_toBottomOf="@id/btnlogin"
-            android:text="Already Have An Account? Login"
+            android:text="@string/already_have_an_account_login"
             android:layout_marginTop="10sp"
             android:textSize="18sp"
             android:linksClickable="true"

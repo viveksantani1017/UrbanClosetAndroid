@@ -39,7 +39,7 @@ class ProductGridAdapter(
         viewHolder.name.text = objects[position].name
         viewHolder.price.text = objects[position].price.toString()
         viewHolder.catname.text = objects[position].categoryname
-        viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}${objects[position].imagePath}"))
+        viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}/images/${objects[position].imagePath}"))
 
         view?.contentDescription = objects[position].id.toString()
 
