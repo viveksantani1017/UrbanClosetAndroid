@@ -5,19 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
-import kotlin.coroutines.coroutineContext
 
 class login : AppCompatActivity() {
     private lateinit var etusername: TextInputEditText
@@ -33,7 +29,7 @@ class login : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-        val tvsignup = findViewById<TextView>(R.id.tvsignup)
+        val tvsignup = findViewById<TextView>(R.id.tvlogin)
         tvsignup.setOnClickListener {
             var intent = Intent(this, SignUp::class.java)
             startActivity(intent)
@@ -41,7 +37,7 @@ class login : AppCompatActivity() {
         }
         etusername = findViewById(R.id.edittextusername)
         etpassword = findViewById(R.id.edittextpassword)
-        var btnlogin = findViewById<Button>(R.id.btnlogin)
+        var btnlogin = findViewById<Button>(R.id.btnsignup)
         btnlogin.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 loginButtonClicked()
@@ -60,7 +56,6 @@ class login : AppCompatActivity() {
             var userid = authenticate(username, password)
             if ( userid > 0) {
 
-                val jsonObject = JSONObject()
                 val pref = getSharedPreferences("UrbanCloset", MODE_PRIVATE)
                 val prefEditor = pref.edit()
 
