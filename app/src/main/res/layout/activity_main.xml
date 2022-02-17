@@ -47,308 +47,56 @@
                 android:text="@string/mens_collection"
                 android:textSize="20sp"
                 style="@style/textview_style"
-                app:layout_constraintBottom_toTopOf="@id/card"
+                app:layout_constraintBottom_toTopOf="@id/grdProducts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/carouselView"
                 android:layout_marginVertical="20sp"
                 />
-            <!--    Men Cards-->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5sp"
-                android:layout_marginStart="20dp"
-                app:cardElevation="4sp"
-                app:layout_constraintStart_toStartOf="parent"
+            <GridView
                 app:layout_constraintTop_toBottomOf="@id/tv_men_collection"
-                app:layout_constraintBottom_toTopOf="@id/tv_women"
-                >
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="16dp"
-                    > <!-- Media -->
-                    <ImageView
-                        android:id="@+id/img_men_product"
-                        android:layout_width="150dp"
-                        android:layout_height="210dp"
-                        android:contentDescription="desc"
-                        android:scaleType="centerCrop"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@id/tv_men_category"
-                        app:srcCompat="@drawable/firstproduct1" />
-                    <!-- Title -->
-                    <TextView
-                        android:id="@+id/tv_men_category"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5sp"
-                        android:text="Men Shirts"
-                        android:textSize="10sp"
-                        app:layout_constraintBottom_toTopOf="@id/tv_men_product_name"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/img_men_product" />
-
-                    <TextView
-                        android:id="@+id/tv_men_product_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10sp"
-                        android:text="SLIM FIT  \nT-SHIRT"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        android:textSize="15sp"
-                        app:layout_constraintBottom_toTopOf="@id/tv_men_product_price"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_men_category" />
-
-                    <TextView
-                        android:id="@+id/tv_men_product_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5sp"
-                        android:text="₹2990"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        android:textColor="#c0c0c0"
-                        android:textSize="12sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tv_men_product_name" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card2"
+                android:layout_marginVertical="20sp"
+                android:id="@+id/grdProducts"
+                android:numColumns="2"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                android:layout_marginHorizontal="10sp"
+                android:paddingVertical="10sp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="5sp"
-                android:layout_marginStart="20dp"
-                app:cardElevation="4sp"
-                app:layout_constraintStart_toEndOf="@id/card"
-                app:layout_constraintTop_toBottomOf="@id/tv_men_collection"
-                app:layout_constraintBottom_toTopOf="@id/tv_women">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"> <!-- Media -->
-                        <ImageView
-                            android:id="@+id/img_men_product2"
-                            android:layout_width="150dp"
-                            android:layout_height="210dp"
-                            android:contentDescription="desc"
-                            android:scaleType="centerCrop"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/fifthproduct1" />
-                        <!-- Title -->
-                        <TextView
-                            android:id="@+id/tv_men_category2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="5sp"
-                            android:text="Men Shirts"
-                            android:textSize="10sp"
-                            app:layout_constraintBottom_toTopOf="@id/tv_men_product_name2"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/img_men_product2" />
-
-                        <TextView
-                            android:id="@+id/tv_men_product_name2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="FORMAL\nFUNCTIONAL SUIT"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            android:textSize="15sp"
-                            app:layout_constraintBottom_toBottomOf="@id/tv_men_product_price2"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tv_men_category2" />
-
-                        <TextView
-                            android:id="@+id/tv_men_product_price2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="₹2990"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            android:textColor="#c0c0c0"
-                            android:textSize="12sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_men_product_name2" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-            <!--    Men Cards End-->
-            <!--    Women Crads-->
+                android:layout_height="match_parent"
+                android:scrollbarThumbVertical="@android:color/transparent"
+                />
             <TextView
-                android:id="@+id/tv_women"
+                android:id="@+id/tv_women_collection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/womens_collection"
-                style="@style/textview_style"
+                android:text="Womens Collection"
                 android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/card"
-                app:layout_constraintBottom_toTopOf="@id/womencard"
+                style="@style/textview_style"
+                app:layout_constraintBottom_toTopOf="@id/tv_women_collection"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/grdProducts"
                 android:layout_marginVertical="20sp"
                 />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/womencard"
+            <GridView
+                app:layout_constraintTop_toBottomOf="@id/tv_women_collection"
+                android:layout_marginVertical="20sp"
+                android:id="@+id/grdProductswomen"
+                android:numColumns="2"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                android:layout_marginHorizontal="10sp"
+                android:paddingVertical="10sp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/tv_women"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/tv_newest"
-                android:layout_marginStart="20dp"
-                tools:layout_editor_absoluteX="8dp"
-                app:cardElevation="4sp"
-                android:layout_marginVertical="5sp"
-                >
+                android:layout_height="match_parent"
+                android:scrollbarThumbVertical="@android:color/transparent"
+                />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"> <!-- Media -->
-                        <ImageView
-                            android:id="@+id/img_women_product"
-                            android:layout_width="150dp"
-                            android:layout_height="210dp"
-                            android:contentDescription="desc"
-                            android:scaleType="centerCrop"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/womenproduct" />
-                        <!-- Title -->
-                        <TextView
-                            android:id="@+id/tv_women_category"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintTop_toBottomOf="@id/img_women_product"
-                            app:layout_constraintBottom_toTopOf="@id/tv_women_product_name"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:text="Women Shirts"
-                            android:layout_marginVertical="5sp"
-                            android:textSize="10sp"
-                            />
-                        <TextView
-                            android:id="@+id/tv_women_product_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="SLIM FIT\nT-SHIRT"
-                            android:textSize="15sp"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tv_women_category"
-                            app:layout_constraintBottom_toBottomOf="@id/tv_women_product_price"
-                            />
-
-                        <TextView
-                            android:id="@+id/tv_women_product_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="₹2990"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            android:textColor="#c0c0c0"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_women_product_name"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-            <com.google.android.material.card.MaterialCardView
-                app:layout_constraintTop_toBottomOf="@id/tv_women"
-                app:layout_constraintStart_toEndOf="@id/womencard"
-                app:layout_constraintBottom_toTopOf="@id/tv_newest"
-                android:id="@+id/womencard2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                tools:layout_editor_absoluteX="8dp"
-                app:cardElevation="4sp"
-                android:layout_marginVertical="5sp"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp"> <!-- Media -->
-                        <ImageView
-                            android:id="@+id/img_women_product2"
-                            android:layout_width="150dp"
-                            android:layout_height="210dp"
-                            android:contentDescription="desc"
-                            android:scaleType="centerCrop"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/womenproduct2" />
-                        <!-- Title -->
-                        <TextView
-                            android:id="@+id/tv_women_category2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintTop_toBottomOf="@id/img_women_product2"
-                            app:layout_constraintBottom_toTopOf="@id/tv_women_product_name2"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:text="Women Shirts"
-                            android:layout_marginVertical="5sp"
-                            android:textSize="10sp"
-                            />
-                        <TextView
-                            android:id="@+id/tv_women_product_name2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="FORMAL\nFUNCTIONAL SUIT"
-                            android:textSize="15sp"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tv_women_category2"
-                            app:layout_constraintBottom_toBottomOf="@id/tv_women_product_price2"
-                            />
-
-                        <TextView
-                            android:id="@+id/tv_women_product_price2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="₹2990"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            android:textColor="#c0c0c0"
-                            android:textSize="12sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tv_women_product_name2"
-                            app:layout_constraintBottom_toBottomOf="parent"/>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-            <!-- Women Crads End-->
             <TextView
                 android:id="@+id/tv_newest"
                 android:layout_width="wrap_content"
@@ -359,7 +107,7 @@
                 app:layout_constraintBottom_toTopOf="@id/horizontalScrollView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/womencard"
+                app:layout_constraintTop_toBottomOf="@id/grdProductswomen"
                 android:layout_marginVertical="20sp"
                 />
 
@@ -379,211 +127,21 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     >
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/scrollcard"
+                    <GridView
+                        app:layout_constraintTop_toBottomOf="@id/tv_newest"
+                        android:layout_marginVertical="20sp"
+                        android:id="@+id/grdProductsnewest"
+                        android:numColumns="4"
+                        android:verticalSpacing="10dp"
+                        android:horizontalSpacing="10dp"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center"
+                        android:layout_marginHorizontal="10sp"
+                        android:paddingVertical="10sp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        tools:layout_editor_absoluteX="8dp"
-                        app:cardElevation="4sp"
-                        android:layout_marginVertical="5sp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="16dp"> <!-- Media -->
-                                <ImageView
-                                    android:id="@+id/imageView"
-                                    android:layout_width="150dp"
-                                    android:layout_height="210dp"
-                                    android:contentDescription="desc"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/fifthproduct1" />
-                                <!-- Title -->
-                                <TextView
-                                    android:id="@+id/tvcategoryname"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    app:layout_constraintTop_toBottomOf="@id/imageView"
-                                    app:layout_constraintBottom_toTopOf="@id/textView2"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    android:text="Men Shirts"
-                                    android:layout_marginVertical="5sp"
-                                    android:textSize="10sp"
-                                    />
-                                <TextView
-                                    android:id="@+id/textView2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="FORMAL\nFUNCTIONAL SUIT"
-                                    android:textSize="15sp"
-                                    android:textAppearance="?attr/textAppearanceHeadline6"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/tvcategoryname"
-                                    app:layout_constraintBottom_toBottomOf="@id/price1"
-                                    />
-
-                                <TextView
-                                    android:id="@+id/price1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="₹2990"
-                                    android:textAppearance="?attr/textAppearanceHeadline6"
-                                    android:textColor="#c0c0c0"
-                                    android:textSize="12sp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView2"
-                                    app:layout_constraintBottom_toBottomOf="parent"/>
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </LinearLayout>
-
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/scrollcard2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        tools:layout_editor_absoluteX="8dp"
-                        app:cardElevation="4sp"
-                        android:layout_marginVertical="5sp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="16dp"> <!-- Media -->
-                                <ImageView
-                                    android:id="@+id/imageView2"
-                                    android:layout_width="150dp"
-                                    android:layout_height="210dp"
-                                    android:contentDescription="desc"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/sixthproduct1" />
-                                <!-- Title -->
-                                <TextView
-                                    android:id="@+id/categoryname"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    app:layout_constraintTop_toBottomOf="@id/imageView2"
-                                    app:layout_constraintBottom_toTopOf="@id/textView22"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    android:text="Men Bottoms"
-                                    android:layout_marginVertical="5sp"
-                                    android:textSize="10sp"
-                                    />
-                                <TextView
-                                    android:id="@+id/textView22"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="DIAGNOL PLAIN\nWEAVE SHIRT"
-                                    android:textSize="15sp"
-                                    android:textAppearance="?attr/textAppearanceHeadline6"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/categoryname"
-                                    app:layout_constraintBottom_toBottomOf="@id/price2"
-                                    />
-                                <TextView
-                                    android:id="@+id/price2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="₹3990"
-                                    android:textAppearance="?attr/textAppearanceHeadline6"
-                                    android:textColor="#c0c0c0"
-                                    android:textSize="12sp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView22"
-                                    app:layout_constraintBottom_toBottomOf="parent"/>
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </LinearLayout>
-
-                    </com.google.android.material.card.MaterialCardView>
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/scrollcard3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        tools:layout_editor_absoluteX="8dp"
-                        app:cardElevation="4sp"
-                        android:layout_marginVertical="5sp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="16dp"> <!-- Media -->
-                                <ImageView
-                                    android:id="@+id/imageView3"
-                                    android:layout_width="150dp"
-                                    android:layout_height="210dp"
-                                    android:contentDescription="desc"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/firstproduct1" />
-                                <!-- Title -->
-                                <TextView
-                                    android:id="@+id/categoryname3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    app:layout_constraintTop_toBottomOf="@id/imageView3"
-                                    app:layout_constraintBottom_toTopOf="@id/textView3"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    android:text="Men Tops"
-                                    android:layout_marginVertical="5sp"
-                                    android:textSize="10sp"
-                                    />
-                                <TextView
-                                    android:id="@+id/textView3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="BASIC SLIM\nFIT T-SHIRT"
-                                    android:textSize="15sp"
-                                    android:textAppearance="?attr/textAppearanceHeadline6"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/categoryname3"
-                                    app:layout_constraintBottom_toBottomOf="@id/price3"
-                                    />
-                                <TextView
-                                    android:id="@+id/price3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="₹1990"
-                                    android:textAppearance="?attr/textAppearanceHeadline6"
-                                    android:textColor="#c0c0c0"
-                                    android:textSize="12sp"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/textView3"
-                                    app:layout_constraintBottom_toBottomOf="parent"/>
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </LinearLayout>
-
-                    </com.google.android.material.card.MaterialCardView>
+                        android:layout_height="match_parent"
+                        android:scrollbarThumbVertical="@android:color/transparent"
+                        />
                 </LinearLayout>
 
 

@@ -13,10 +13,11 @@
     <item
         android:id="@+id/menuwishlist"
         android:title="@string/menu_wishlist"
-        android:icon="@drawable/ic_outline_favorite_24" />
+        android:icon="@drawable/ic_fav" />
     <item
         android:id="@+id/menuprofile"
         android:title="@string/menu_profile"
-        android:icon="@drawable/ic_profile" />
+        android:icon="@drawable/ic_profile"
+        />
 
 </menu>
