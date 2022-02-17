@@ -29,7 +29,7 @@ class NewProductApi {
             if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                 val reader = connection.inputStream.bufferedReader()
                 val responseJson = JSONObject(reader.readText())
-                val productsJson = responseJson.getJSONArray("Products")
+                val productsJson = responseJson.getJSONArray("newproducts")
 
                 var i = 0
                 while (i < productsJson.length()) {
