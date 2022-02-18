@@ -14,7 +14,6 @@ class ProductListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
         var actionBar = getSupportActionBar()
-
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
         grdProducts.setOnItemClickListener { _, view, _, _ ->
@@ -28,9 +27,6 @@ class ProductListActivity : AppCompatActivity() {
 
                 for (product in products)
                     Productapi.downloadImage(this@ProductListActivity, product)
-                // val adapter = ProductListAdapter(this@MainActivity, products)
-                // withContext(Dispatchers.Main) { lstProducts.adapter = adapter }
-
 
                 val adapter = ProductGridAdapter(this@ProductListActivity, products)
                 withContext(Dispatchers.Main) { grdProducts.adapter = adapter }
