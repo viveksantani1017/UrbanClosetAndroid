@@ -1,53 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:elevation="20sp"
-    android:layout_marginBottom="10dp"
-    >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp"
-    >
-    <ImageView
-        android:id="@+id/productimage"
-        android:layout_width="150dp"
-        android:layout_height="210dp"
-        android:contentDescription="desc"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tv_men_category"
-        app:srcCompat="@drawable/firstproduct1"/>
-    <TextView
-        android:id="@+id/tvproductcolor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5sp"
-        android:text="Category Name"
-        style="@style/TextAppearance.AppCompat.Caption"
-        android:textSize="10sp"
-        />
-    <TextView
-        android:id="@+id/tvproductname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5sp"
-        android:textSize="15sp"
-        android:text="Product Name"
-        style="@style/TextAppearance.AppCompat.Body2"
-        />
-    <TextView
-    android:id="@+id/tvproductprice"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="2000"
-    android:textSize="13sp"
-    />
+    android:layout_marginBottom="10dp"
+    android:elevation="@dimen/cardview_compat_inset_shadow"
+    >
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <ImageView
+            android:id="@+id/productimage"
+            android:layout_width="150dp"
+            android:layout_height="210dp"
+            android:contentDescription="desc"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@id/tv_men_category"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/firstproduct1" />
+
+        <TextView
+            android:id="@+id/tvcategoryname"
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvproductname"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5sp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvproductprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp" />
+
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

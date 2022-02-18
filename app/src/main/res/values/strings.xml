@@ -12,4 +12,18 @@
     <string name="product_image">Product Image</string>
     <string name="categoryname">Category Name</string>
     <string name="update_wishlist">update wishlist</string>
+    <string name="UsernameHint">Enter UserName</string>
+    <string name="PasswordHint">Enter Password</string>
+    <string name="PhoneNumberHint">Enter PhoneNumber</string>
+    <string name="BtnSignUpHint">SignUp</string>
+    <string name="already_have_an_account_login">Already Have An Account? Login</string>
+    <string name="create_your_account">Create Your Account</string>
+    <string name="signup_image">Signup Image</string>
+    <string name="EmailHint">Enter Email Address</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_order">My Orders</string>
+    <string name="menu_wishlist">My Wishlist</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
