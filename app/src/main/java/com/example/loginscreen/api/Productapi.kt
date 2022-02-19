@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import com.example.loginscreen.models.Product
+import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -85,8 +86,8 @@ class Productapi {
         }
 
         internal fun getProduct(id: Int): Product? {
-
-            val url = URL("$API_URL/getproduct?productid=$id")
+            val productList= arrayListOf<Product>()
+            val url = URL("$API_URL/getproductdetail?productid=$id")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
@@ -97,9 +98,10 @@ class Productapi {
             if (connection.responseCode == HttpURLConnection.HTTP_OK) {
 
                 val reader = connection.inputStream.bufferedReader()
-                val responseJson = JSONObject(reader.readText())
+                val responseJson = JSONArray(reader.readText())
+                val productsJson = responseJson.getJSONObject(0)
 
-                with(responseJson)
+                with(productsJson)
                 {
                     return Product(
                         getInt("productid"),
@@ -115,8 +117,7 @@ class Productapi {
                     )
                 }
             }
-
-            return null
+                return null
         }
     }
 }

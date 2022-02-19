@@ -1,6 +1,8 @@
 package com.example.loginscreen
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.GridView
 import android.widget.Toast
@@ -16,12 +18,18 @@ class ProductListActivity : AppCompatActivity() {
         var actionBar = getSupportActionBar()
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
-        grdProducts.setOnItemClickListener { _, view, _, _ ->
-            val productId = view.contentDescription.toString().toInt()
-            val product = Productapi.getProduct(productId)
-        }
+
 
         CoroutineScope(Dispatchers.IO).launch {
+            grdProducts.setOnItemClickListener { _, view, _, _ ->
+                val productId = view.contentDescription.toString().toInt()
+                val intent = Intent(this@ProductListActivity, DetailActivity::class.java)
+                intent.putExtra("ProductID", productId)
+                CoroutineScope(Dispatchers.Main).launch {
+                    startActivity(intent)
+                    finish()
+                }
+            }
             val products = Productapi.getAll()
             if (products.isNotEmpty()) {
 
@@ -32,12 +40,17 @@ class ProductListActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) { grdProducts.adapter = adapter }
             } else {
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(this@ProductListActivity, "Empty Product Array", Toast.LENGTH_SHORT)
+                    Toast.makeText(
+                        this@ProductListActivity,
+                        "Empty Product Array",
+                        Toast.LENGTH_SHORT
+                    )
                         .show()
                 }
             }
         }
     }
+
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {

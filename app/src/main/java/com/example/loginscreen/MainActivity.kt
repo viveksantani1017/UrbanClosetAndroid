@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
         val horizontalScrollView = findViewById<HorizontalScrollView>(R.id.horizontalScrollView)
-        val grdProductNewest = horizontalScrollView.findViewById<GridView>(R.id.grdProductsnewest)
+//        val grdProductNewest = horizontalScrollView.findViewById<GridView>(R.id.grdProductsnewest)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
         val grdProductswomen = findViewById<GridView>(R.id.grdProductswomen)
         grdProducts.setOnItemClickListener { _, view, _, _ ->
@@ -87,8 +87,8 @@ class MainActivity : AppCompatActivity() {
             withContext(Dispatchers.Main){grdProducts.adapter = adaptermen}
                 var adapterwomen = CategoryGridAdapter(this@MainActivity,categorywomen)
                 withContext(Dispatchers.Main){grdProductswomen.adapter = adapterwomen}
-                var adapternewproduct = ProductGridAdapter(this@MainActivity,newproduct)
-                withContext(Dispatchers.Main){grdProductNewest.adapter = adapternewproduct}
+//                var adapternewproduct = ProductGridAdapter(this@MainActivity,newproduct)
+//                withContext(Dispatchers.Main){grdProductNewest.adapter = adapternewproduct}
             }
             else
             {
