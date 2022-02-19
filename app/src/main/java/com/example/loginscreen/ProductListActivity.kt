@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.adapters.ProductGridAdapter
 import com.example.loginscreen.api.Productapi
+import com.example.loginscreen.models.Category
 import kotlinx.coroutines.*
 
 class ProductListActivity : AppCompatActivity() {
@@ -16,6 +17,9 @@ class ProductListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
         var actionBar = getSupportActionBar()
+        val catintent = intent
+        val catid = catintent.getIntExtra("CatId",0)
+        actionBar?.setTitle(catintent.getStringExtra("CategoryName"))
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
 
@@ -30,7 +34,8 @@ class ProductListActivity : AppCompatActivity() {
                     finish()
                 }
             }
-            val products = Productapi.getAll()
+
+            val products = Productapi.getAll(catid)
             if (products.isNotEmpty()) {
 
                 for (product in products)
@@ -51,7 +56,7 @@ class ProductListActivity : AppCompatActivity() {
         }
     }
 
-    override fun onContextItemSelected(item: MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
                 finish()

@@ -15,6 +15,7 @@ import com.example.loginscreen.adapters.ProductGridAdapter
 import com.example.loginscreen.api.Categoryapi
 import com.example.loginscreen.api.NewProductApi
 import com.example.loginscreen.api.Productapi
+import com.example.loginscreen.models.Category
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.synnapps.carouselview.CarouselView
@@ -55,6 +56,11 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     drawer.closeDrawer(GravityCompat.START)
                 }
+                R.id.menuorder -> {
+                    var intent = Intent(this, OrderActivity::class.java)
+                    startActivity(intent)
+                    drawer.closeDrawer(GravityCompat.START)
+                }
             }
             true
         }
@@ -62,15 +68,30 @@ class MainActivity : AppCompatActivity() {
 //        val grdProductNewest = horizontalScrollView.findViewById<GridView>(R.id.grdProductsnewest)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
         val grdProductswomen = findViewById<GridView>(R.id.grdProductswomen)
-        grdProducts.setOnItemClickListener { _, view, _, _ ->
-            val productId = view.contentDescription.toString().toInt()
-            val product = Productapi.getProduct(productId)
-        }
+
         val carouselView = findViewById(R.id.carouselView) as CarouselView;
         carouselView.setPageCount(sampleImages.size);
         carouselView.setImageListener(imageListener);
 
         CoroutineScope(Dispatchers.IO).launch {
+            grdProducts.setOnItemClickListener { _, view, _, _ ->
+                val catId = view.contentDescription.toString().toInt()
+                val intent = Intent(this@MainActivity,ProductListActivity::class.java)
+                intent.putExtra("CatId",catId)
+                intent.putExtra("CategoryName","Men Products")
+                CoroutineScope(Dispatchers.Main).launch {
+                    startActivity(intent)
+                }
+            }
+            grdProductswomen.setOnItemClickListener { _, view, _, _ ->
+                val catId = view.contentDescription.toString().toInt()
+                val intent = Intent(this@MainActivity,ProductListActivity::class.java)
+                intent.putExtra("CatId",catId)
+                intent.putExtra("CategoryName","Women Products")
+                CoroutineScope(Dispatchers.Main).launch {
+                    startActivity(intent)
+                }
+            }
             val categorymen = Categoryapi.getMens()
             val categorywomen = Categoryapi.getWomens()
             val newproduct = NewProductApi.getAll()

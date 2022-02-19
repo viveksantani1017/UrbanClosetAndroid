@@ -17,10 +17,10 @@ class Productapi {
     companion object {
         val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
 
-        internal fun getAll(): Array<Product> {
+        internal fun getAll(id:Int): Array<Product> {
             val productList = arrayListOf<Product>()
 
-            val url = URL("$API_URL/getproduct?catid=1")
+            val url = URL("$API_URL/getproduct?catid=$id")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true

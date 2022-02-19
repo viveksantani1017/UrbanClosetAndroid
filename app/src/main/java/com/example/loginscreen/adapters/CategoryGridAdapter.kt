@@ -27,6 +27,8 @@ class CategoryGridAdapter(
             viewHolder.name = view.findViewById(R.id.tvproductname)
             viewHolder.image = view.findViewById(R.id.productimage)
             view.tag = viewHolder
+            view?.contentDescription = objects[position].id.toString()
+
         }
         else
         {
