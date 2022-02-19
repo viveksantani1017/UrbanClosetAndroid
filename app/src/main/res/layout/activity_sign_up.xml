@@ -58,6 +58,7 @@
             app:startIconDrawable="@drawable/email">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edittextemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
@@ -133,11 +134,11 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextphonenumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:maxLength="10"
-            />
+            android:maxLength="10" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
