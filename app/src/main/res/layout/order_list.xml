@@ -1,60 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="10sp"
     android:layout_marginHorizontal="10sp"
     android:layout_marginTop="20sp"
-    >
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/orderdetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20sp"
-        android:text="ORDER DETAILS"
-        style="@style/TextAppearance.AppCompat.Title"
-        />
-    <TextView
-        android:id="@+id/ProductName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/orderdetails"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="10sp"
-        android:layout_marginTop="15sp"
-        android:layout_marginStart="20sp"
-        android:text="Product Name"
-        style="@style/TextAppearance.AppCompat.Medium"
-        />
-    <TextView
-        android:id="@+id/orderstatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/ProductName"
-        app:layout_constraintBottom_toBottomOf="@id/ProductName"
-        app:layout_constraintEnd_toStartOf="@id/status"
-        android:layout_marginEnd="10sp"
-        android:text="Status:"
-        style="@style/TextAppearance.AppCompat.Small"
-        />
-    <TextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/orderstatus"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="10sp"
-        android:text="Order Placed"
-        style="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/black"
-        />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    app:cardElevation="5sp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/orderdetails"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:text="ORDER NO. "
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:id="@+id/ordernumber"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            app:layout_constraintStart_toEndOf="@id/orderdetails"
+            app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/TotalPrice"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="15sp"
+            android:text="@string/total_price"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@id/date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/orderdetails" />
+
+        <TextView
+            android:id="@+id/tvtotalprice"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/TotalPrice"
+            app:layout_constraintStart_toEndOf="@id/TotalPrice"
+            app:layout_constraintTop_toTopOf="@id/TotalPrice" />
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:text="@string/date"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/TotalPrice"
+            app:layout_constraintStart_toStartOf="@id/TotalPrice"
+            app:layout_constraintBottom_toTopOf="@id/status"
+            />
+
+        <TextView
+            android:id="@+id/orderdate"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="@id/date"
+            app:layout_constraintStart_toEndOf="@id/date"
+            app:layout_constraintBottom_toBottomOf="@id/date"
+
+            />
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10sp"
+            android:text="@string/status"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/TotalPrice"
+            app:layout_constraintTop_toBottomOf="@id/date"
+            />
+
+        <TextView
+            android:id="@+id/orderstatus"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5sp"
+            android:text="YOOOO"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/status"
+            app:layout_constraintStart_toEndOf="@id/status"
+            app:layout_constraintTop_toTopOf="@id/status" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

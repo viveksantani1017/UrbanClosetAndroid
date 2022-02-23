@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderActivity"
+    android:background="#f5f5f5"
+    android:orientation="vertical"
+    >
+   <TextView
+       android:id="@+id/tvorderdetails"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="ORDER DETAILS"
+       android:layout_gravity="center"
+       android:layout_marginVertical="20sp"
+       style="@style/TextAppearance.AppCompat.Title"
+       />
+    <GridView
+        android:id="@+id/orderlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:verticalSpacing="20sp"
+        android:horizontalSpacing="20sp"
+        android:numColumns="1"
+        />
+
+</LinearLayout>

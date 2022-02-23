@@ -26,4 +26,7 @@
     <string name="menu_wishlist">My Wishlist</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="total_price">Total Price:</string>
+    <string name="date">Date:</string>
+    <string name="status">Status:</string>
 </resources>
