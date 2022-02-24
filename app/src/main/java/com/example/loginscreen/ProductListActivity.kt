@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.GridView
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.adapters.ProductGridAdapter
 import com.example.loginscreen.api.Productapi
 import com.example.loginscreen.models.Category
+import com.example.loginscreen.models.Product
 import kotlinx.coroutines.*
 
 class ProductListActivity : AppCompatActivity() {
@@ -22,24 +25,32 @@ class ProductListActivity : AppCompatActivity() {
         actionBar?.setTitle(catintent.getStringExtra("CategoryName"))
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
-
-
+        var icon = findViewById<ImageView>(R.id.icon)
+        icon = null
+        val uri = "@drawable/ic_fav"
+        var imgres = resources.getIdentifier(uri,null,packageName)
+        var res = resources.getDrawable(imgres)
         CoroutineScope(Dispatchers.IO).launch {
             grdProducts.setOnItemClickListener { _, view, _, _ ->
                 val productId = view.contentDescription.toString().toInt()
-                val intent = Intent(this@ProductListActivity, DetailActivity::class.java)
+                val intent = Intent(this@ProductListActivity, productdetails::class.java)
                 intent.putExtra("ProductID", productId)
                 CoroutineScope(Dispatchers.Main).launch {
                     startActivity(intent)
-                    finish()
+
                 }
             }
 
-            val products = Productapi.getAll(catid)
+            val products = Productapi.getAll(catid,this@ProductListActivity)
             if (products.isNotEmpty()) {
 
-                for (product in products)
+                for (product in products){
                     Productapi.downloadImage(this@ProductListActivity, product)
+                    if(product.inwishlist)
+                    {
+                       icon?.setBackgroundResource(R.drawable.ic_fav)
+                    }
+                }
 
                 val adapter = ProductGridAdapter(this@ProductListActivity, products)
                 withContext(Dispatchers.Main) { grdProducts.adapter = adapter }
@@ -54,6 +65,7 @@ class ProductListActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

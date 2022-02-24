@@ -15,12 +15,11 @@ import java.net.URL
 
 class Categoryapi {
     companion object {
-        val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
 
         internal fun getMens(): Array<Category> {
             val CategoryList = arrayListOf<Category>()
 
-            val url = URL("$API_URL/getcategory?catid=1")
+            val url = URL("${Productapi.API_URL}/getcategory?catid=1")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
@@ -52,7 +51,7 @@ class Categoryapi {
         internal fun getWomens(): Array<Category> {
             val CategoryList = arrayListOf<Category>()
 
-            val url = URL("$API_URL/getcategory")
+            val url = URL("${Productapi.API_URL}/getcategory")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
@@ -83,7 +82,7 @@ class Categoryapi {
 
         internal fun downloadImage(context: Context, category: Category)
         {
-            val url = URL("$API_URL/images/${category.imagePath}")
+            val url = URL("${Productapi.API_URL}/images/${category.imagePath}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true

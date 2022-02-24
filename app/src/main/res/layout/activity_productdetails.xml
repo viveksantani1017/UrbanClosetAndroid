@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".productdetails"
+    android:background="#f5f5f5"
     >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -62,7 +63,7 @@
         android:layout_height="40sp"
         android:layout_marginTop="20sp"
         android:layout_marginStart="10sp"
-        android:text="$999"
+        android:text=""
         android:textSize="28sp"
         android:textAppearance="?attr/textAppearanceBody2"
         android:textColor="?android:attr/textColorSecondary"
@@ -186,7 +187,6 @@
                 android:layout_height="80sp"
                 android:layout_marginStart="10sp"
                 android:layout_marginEnd="10sp"
-                android:background="@drawable/replace"
                 android:textAlignment="center"
                 app:layout_constraintStart_toEndOf="@+id/cod"
                 app:layout_constraintEnd_toStartOf="@+id/quality"
@@ -211,7 +211,6 @@
                 android:id="@+id/quality"
                 android:layout_width="80sp"
                 android:layout_height="80sp"
-                android:background="@drawable/quality"
                 app:layout_constraintStart_toEndOf="@+id/replace"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/replace"

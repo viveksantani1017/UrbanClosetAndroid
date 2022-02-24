@@ -1,9 +1,11 @@
 package com.example.loginscreen.api
 
+import android.app.Application
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.models.Product
 import org.json.JSONArray
 import org.json.JSONObject
@@ -14,13 +16,16 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 class Productapi {
-    companion object {
-        val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
 
-        internal fun getAll(id:Int): Array<Product> {
+    companion object {
+        val API_URL = "http://10.1.90.19:8084/UrbanClosetApache"
+
+        internal fun getAll(id: Int,context: Context): Array<Product> {
+            val pref = context.getSharedPreferences("UrbanCloset", AppCompatActivity.MODE_PRIVATE)
+            val userId = pref.getInt("UserID", 0)
             val productList = arrayListOf<Product>()
 
-            val url = URL("$API_URL/getproduct?catid=$id")
+            val url = URL("$API_URL/getproduct?catid=$id&userid=2")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
@@ -35,17 +40,24 @@ class Productapi {
                 var i = 0
                 while (i < productsJson.length()) {
                     val productJson = productsJson.getJSONObject(i)
+
+                    var images = arrayOf(
+                        productJson.getString("image"),
+                        productJson.getString ("image2"),
+                        productJson.getString ("image3")
+
+                    )
                     val productdata = Product(
                         productJson.getInt("productid"),
                         productJson.getString("ProductName"),
                         productJson.getInt("ProductPrice"),
+                        productJson.getString("ProductDescription"),
                         productJson.getInt("ProductQuantity"),
                         productJson.getString("ProductColour"),
                         productJson.getString("ProductSize"),
-                        productJson.getString("image"),
-                        productJson.getString("image2"),
-                        productJson.getString("image3"),
-                        productJson.getString("CategoryName"),
+                        images,
+                        productJson.getString ("CategoryName"),
+                        productJson.getBoolean("inwishlist")
                     )
                     productList.add(productdata)
 
@@ -57,36 +69,38 @@ class Productapi {
         }
 
         internal fun downloadImage(context: Context, product: Product) {
-            val url = URL("$API_URL/images/${product.imagePath}")
-            val connection = (url.openConnection() as HttpURLConnection).apply {
-                requestMethod = "GET"
-                doInput = true
-            }
+            for(image in product.images) {
 
-            try {
-                val cacheDirPath = context.externalCacheDir!!.absolutePath
-                val imageDirPath = "${cacheDirPath}/images/"
-
-                val imageDir = File(imageDirPath)
-                if (!imageDir.exists())
-                    imageDir.mkdirs()
-
-                val imageSavePath = FileOutputStream("${imageDirPath}${product.imagePath}")
-
-                connection.connect()
-                if (connection.responseCode == HttpURLConnection.HTTP_OK) {
-                    val bitmap = BitmapFactory.decodeStream(connection.inputStream)
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 30, imageSavePath)
+                val url = URL("$API_URL/images/${image}")
+                val connection = (url.openConnection() as HttpURLConnection).apply {
+                    requestMethod = "GET"
+                    doInput = true
                 }
-            } catch (ex: Exception) {
-                Log.e("downloadImage", ex.message!!)
-            } finally {
-                connection.disconnect()
+
+                try {
+                    val cacheDirPath = context.externalCacheDir!!.absolutePath
+                    val imageDirPath = "${cacheDirPath}/images/"
+
+                    val imageDir = File(imageDirPath)
+                    if (!imageDir.exists())
+                        imageDir.mkdirs()
+
+                    val imageSavePath = FileOutputStream("${imageDirPath}${image}")
+                    connection.connect()
+                    if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+                        val bitmap = BitmapFactory.decodeStream(connection.inputStream)
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 80, imageSavePath)
+                    }
+                } catch (ex: Exception) {
+                    Log.e("downloadImage", ex.message!!)
+                } finally {
+                    connection.disconnect()
+                }
             }
         }
 
         internal fun getProduct(id: Int): Product? {
-            val productList= arrayListOf<Product>()
+            val productList = arrayListOf<Product>()
             val url = URL("$API_URL/getproductdetail?productid=$id")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
@@ -100,6 +114,12 @@ class Productapi {
                 val reader = connection.inputStream.bufferedReader()
                 val responseJson = JSONArray(reader.readText())
                 val productsJson = responseJson.getJSONObject(0)
+                var images = arrayOf(
+                    productsJson.getString("image"),
+                    productsJson.getString ("image2"),
+                    productsJson.getString ("image3")
+
+                )
 
                 with(productsJson)
                 {
@@ -107,17 +127,17 @@ class Productapi {
                         getInt("productid"),
                         getString("ProductName"),
                         getInt("ProductPrice"),
+                        getString("ProductDescription"),
                         getInt("ProductQuantity"),
                         getString("ProductColour"),
                         getString("ProductSize"),
-                        getString("image"),
-                        getString("image2"),
-                        getString("image3"),
-                        getString("CategoryName")
+                        images,
+                        getString("CategoryName"),
+                        getBoolean("inwishlist")
                     )
                 }
             }
-                return null
+            return null
         }
     }
 }
