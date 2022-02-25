@@ -52,6 +52,7 @@
         android:text="REGULAR FIT BLAZER WITH A NOTCHED LAPEL COLLAR. LONG SLEEVES WITH BUTTONS ON THE CUFFS. CHEST WELT POCKET AND FLAP HIP POCKETS. INSIDE POCKET DETAIL. BACK VENT AT THE HEM. FRONT BUTTON FASTENING."
         android:textSize="15sp"
         android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="?android:attr/textColorSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/productname"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +67,7 @@
         android:text=""
         android:textSize="28sp"
         android:textAppearance="?attr/textAppearanceBody2"
-        android:textColor="?android:attr/textColorSecondary"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/quantity"
         app:layout_constraintTop_toBottomOf="@+id/productdes"
@@ -84,6 +85,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etquantity"
             android:layout_width="match_parent"
             android:layout_height="33sp"
             android:layout_marginTop="10sp"
@@ -97,15 +99,17 @@
         android:id="@+id/size"
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="wrap_content"
-        android:layout_height="40sp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="10sp"
-        android:hint="Size"
         app:layout_constraintStart_toEndOf="@id/quantity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/price"
+        app:layout_constraintTop_toTopOf="@+id/quantity"
+        app:layout_constraintBottom_toBottomOf="@id/quantity"
+        android:hint="Size"
         >
 
         <AutoCompleteTextView
+            android:id="@+id/autoComplete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"

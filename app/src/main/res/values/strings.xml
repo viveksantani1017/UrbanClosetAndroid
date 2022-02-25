@@ -29,4 +29,10 @@
     <string name="total_price">Total Price:</string>
     <string name="date">Date:</string>
     <string name="status">Status:</string>
+
+    <string-array name="size_menu">
+        <item>M</item>
+        <item>X</item>
+        <item>L</item>
+    </string-array>
 </resources>

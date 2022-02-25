@@ -35,7 +35,7 @@ class cartGridAdapter (
             viewHolder = view.tag as ViewHolder
         }
 
-        viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}/images/${objects[position].imagePath}"))
+        viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}/images/${objects[position].images[0]}"))
         viewHolder.name.text = objects[position].name
         viewHolder.size.text = objects[position].size
         viewHolder.totalprice.text = objects[position].price.toString()
