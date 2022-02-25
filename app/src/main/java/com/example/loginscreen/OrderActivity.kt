@@ -26,15 +26,14 @@ class OrderActivity : AppCompatActivity() {
         val orderlist = findViewById<GridView>(R.id.orderlist)
 
         CoroutineScope(Dispatchers.IO).launch {
-//            orderlist.setOnItemClickListener { _, view, _, _ ->
-//                val productId = view.contentDescription.toString().toInt()
-//                val intent = Intent(this@ProductListActivity, DetailActivity::class.java)
-//                intent.putExtra("ProductID", productId)
-//                CoroutineScope(Dispatchers.Main).launch {
-//                    startActivity(intent)
-//                    finish()
-//                }
-//            }
+            orderlist.setOnItemClickListener { _, view, _, _ ->
+                val orderId = view.contentDescription.toString().toInt()
+                val intent = Intent(this@OrderActivity, orderDetailActivity::class.java)
+                intent.putExtra("OrderId", orderId)
+                CoroutineScope(Dispatchers.Main).launch {
+                    startActivity(intent)
+                }
+            }
             val orders = OrderApi.getAll()
             if (orders.isNotEmpty()) {
                 val adapter = OrderListAdapter(this@OrderActivity, orders)
@@ -52,13 +51,8 @@ class OrderActivity : AppCompatActivity() {
         }
 
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
-        }
-        return super.onContextItemSelected(item)
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

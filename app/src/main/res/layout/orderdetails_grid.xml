@@ -2,31 +2,13 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="180sp"
+        android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:background="@drawable/carttile"
-        layout_constraintBottom_toBottomOf="parent"
-        layout_constraintEnd_toEndOf="parent"
-        layout_constraintHorizontal_bias="0.492"
-        layout_constraintStart_toStartOf="parent"
-        layout_constraintTop_toTopOf="parent"
-        layout_constraintVertical_bias="0.073"
         xmlns:app="http://schemas.android.com/apk/res-auto">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-<!--            <com.makeramen.roundedimageview.RoundedImageView-->
-<!--                android:id="@+id/productimage"-->
-<!--                android:src="@drawable/product"-->
-<!--                android:layout_width="100sp"-->
-<!--                android:layout_height="170sp"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginTop="4dp"-->
-<!--                android:contentDescription="@string/product_image"-->
-<!--                android:scaleType="fitCenter"-->
-<!--                layout_constraintStart_toStartOf="parent"-->
-<!--                layout_constraintTop_toTopOf="parent"-->
-<!--                riv_corner_radius="8dip"/>-->
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/productimage"
                 android:src="@drawable/product"

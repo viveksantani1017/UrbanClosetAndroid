@@ -27,6 +27,7 @@ class OrderListAdapter(
             viewHolder.date = view.findViewById(R.id.orderdate)
             viewHolder.totalprice = view.findViewById(R.id.tvtotalprice)
             viewHolder.ordernumber = view.findViewById(R.id.ordernumber)
+
             view.tag = viewHolder
         } else {
             viewHolder = view.tag as ViewHolder

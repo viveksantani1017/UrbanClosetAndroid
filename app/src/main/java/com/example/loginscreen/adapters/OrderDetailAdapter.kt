@@ -37,12 +37,11 @@ class OrderDetailAdapter(
                 viewHolder = view.tag as ViewHolder
             }
 
-            viewHolder.orderedproductid.text = objects[position].productName
             viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}/images/${objects[position].productimage}"))
             viewHolder.name.text = objects[position].productName
             viewHolder.size.text = objects[position].size
-            viewHolder.totalprice.text = objects[position].productimage
-            viewHolder.quantity.text = objects[position].quantity.toString()
+            viewHolder.totalprice.text = objects[position].totalPrice.toString()
+            viewHolder.quantity.text = objects[position].quantity
 
             view?.contentDescription = objects[position].id.toString()
 
@@ -55,7 +54,6 @@ class OrderDetailAdapter(
             {
                 lateinit var name: TextView
                 lateinit var size: TextView
-                lateinit var orderedproductid: TextView
                 lateinit var totalprice: TextView
                 lateinit var quantity: TextView
                 lateinit var image: ImageView
