@@ -13,12 +13,13 @@
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_product_list.xml" value="0.13472222222222222" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_productdetails.xml" value="0.10683012259194395" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_productlist.xml" value="0.128" />
-        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_profile.xml" value="0.16" />
+        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_profile.xml" value="0.2" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_singupscreen.xml" value="0.15789473684210525" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/activity_wishlist.xml" value="0.2" />
-        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/cart_grid.xml" value="0.15789473684210525" />
+        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/cart_grid.xml" value="0.386968085106383" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/checkoutlist.xml" value="0.176" />
+        <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/checkoutlist_grid.xml" value="0.15789473684210525" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/list_item.xml" value="0.13472222222222222" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/order_list.xml" value="0.15789473684210525" />
         <entry key="..\:/Projects/Android/androidproject/app/src/main/res/layout/orderdetails_grid.xml" value="0.264" />

@@ -1,6 +1,6 @@
 package com.example.loginscreen.models
 
-class orderdetails(
+data class Orderdetails(
     var id: Int,
     var orderedproductid: Int,
     var productimage: String,

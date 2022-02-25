@@ -8,12 +8,12 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.loginscreen.R
-import com.example.loginscreen.models.orderdetails
+import com.example.loginscreen.models.Orderdetails
 
 class OrderDetailAdapter(
         private val activity: Activity,
-        private val objects: Array<orderdetails>
-    ) : ArrayAdapter<orderdetails>(activity, R.layout.orderdetails_grid, objects)
+        private val objects: Array<Orderdetails>
+    ) : ArrayAdapter<Orderdetails>(activity, R.layout.orderdetails_grid, objects)
     {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup): View
         {

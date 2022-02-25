@@ -30,24 +30,24 @@ class Productapi {
             if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                 val reader = connection.inputStream.bufferedReader()
                 val responseJson = JSONObject(reader.readText())
-                val productsJson = responseJson.getJSONArray("Products")
+                val wishlistsJson = responseJson.getJSONArray("Products")
 
                 var i = 0
-                while (i < productsJson.length()) {
-                    val productJson = productsJson.getJSONObject(i)
-                    val productdata = Product(
-                        productJson.getInt("productid"),
-                        productJson.getString("ProductName"),
-                        productJson.getInt("ProductPrice"),
-                        productJson.getInt("ProductQuantity"),
-                        productJson.getString("ProductColour"),
-                        productJson.getString("ProductSize"),
-                        productJson.getString("image"),
-                        productJson.getString("image2"),
-                        productJson.getString("image3"),
-                        productJson.getString("CategoryName"),
+                while (i < wishlistsJson.length()) {
+                    val wishlistJson = wishlistsJson.getJSONObject(i)
+                    val wishlistdata = Product(
+                        wishlistJson.getInt("productid"),
+                        wishlistJson.getString("ProductName"),
+                        wishlistJson.getInt("ProductPrice"),
+                        wishlistJson.getInt("ProductQuantity"),
+                        wishlistJson.getString("ProductColour"),
+                        wishlistJson.getString("ProductSize"),
+                        wishlistJson.getString("image"),
+                        wishlistJson.getString("image2"),
+                        wishlistJson.getString("image3"),
+                        wishlistJson.getString("CategoryName"),
                     )
-                    productList.add(productdata)
+                    productList.add(wishlistdata)
 
                     i++
                 }

@@ -47,7 +47,6 @@ class wishlistAdapter (
         companion object {
             class ViewHolder {
                 lateinit var name: TextView
-                lateinit var productid: TextView
                 lateinit var size: TextView
                 lateinit var totalprice: TextView
                 lateinit var quantity: TextView
@@ -55,5 +54,3 @@ class wishlistAdapter (
             }
         }
     }
-
-)

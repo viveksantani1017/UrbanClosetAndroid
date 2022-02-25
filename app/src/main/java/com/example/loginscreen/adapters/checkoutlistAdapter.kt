@@ -5,25 +5,23 @@ import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import com.example.loginscreen.R
 import com.example.loginscreen.models.Product
 
-class cartGridAdapter (
+class checkoutlistAdapter(
 
     private val activity: Activity,
     private val objects: Array<Product>
-    ) : ArrayAdapter<Product>(activity, R.layout.cart_grid, objects) {
+) : ArrayAdapter<Product>(activity, R.layout.checkoutlist_grid, objects) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var view: View? = convertView
         val viewHolder: ViewHolder
 
         if (view == null) {
-            view = activity.layoutInflater.inflate(R.layout.cart_grid, parent, false)
+            view = activity.layoutInflater.inflate(R.layout.checkoutlist_grid, parent, false)
 
             viewHolder = ViewHolder()
-            viewHolder.image = view.findViewById(R.id.productimage)
             viewHolder.name = view.findViewById(R.id.productname)
             viewHolder.size = view.findViewById(R.id.sizevalue)
             viewHolder.price = view.findViewById(R.id.pricevalue)
@@ -33,7 +31,6 @@ class cartGridAdapter (
             viewHolder = view.tag as ViewHolder
         }
 
-        viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}/images/${objects[position].imagePath}"))
         viewHolder.name.text = objects[position].name
         viewHolder.size.text = objects[position].size
         viewHolder.price.text = objects[position].price.toString()
@@ -50,7 +47,6 @@ class cartGridAdapter (
             lateinit var size: TextView
             lateinit var price: TextView
             lateinit var quantity: TextView
-            lateinit var image: ImageView
         }
     }
 }
