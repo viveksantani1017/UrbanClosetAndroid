@@ -55,6 +55,17 @@
                 app:layout_constraintTop_toBottomOf="@+id/productname" />
 
             <TextView
+                android:id="@+id/sizevalue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="M"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintStart_toEndOf="@+id/size"
+                app:layout_constraintTop_toTopOf="@+id/size" />
+
+            <TextView
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,6 +75,17 @@
                 android:textColor="?android:attr/textColorSecondary"
                 app:layout_constraintStart_toStartOf="@+id/size"
                 app:layout_constraintTop_toBottomOf="@+id/size"
+                />
+
+            <TextView
+                android:id="@+id/pricevalue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$999"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintStart_toStartOf="@+id/sizevalue"
+                app:layout_constraintTop_toTopOf="@+id/price"
                 />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -79,6 +101,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/quantityvalue"
                     android:layout_width="match_parent"
                     android:layout_height="33sp"
                     android:layout_marginTop="10sp"
