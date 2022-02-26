@@ -7,10 +7,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".productdetails"
     android:background="#f5f5f5"
+    tools:ignore="HardcodedText , contentDescription"
     >
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
 
 
@@ -39,7 +40,8 @@
         android:textAppearance="?attr/textAppearanceHeadline6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carouselView"
-        app:layout_constraintBottom_toTopOf="@+id/productdes"/>
+        app:layout_constraintBottom_toTopOf="@+id/productdes"
+        />
 
 
     <TextView
@@ -89,7 +91,10 @@
             android:layout_width="match_parent"
             android:layout_height="33sp"
             android:layout_marginTop="10sp"
-            android:padding="0sp"/>
+            android:padding="0sp"
+            android:inputType="number"
+            android:text="@string/defaultsize"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -113,6 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="none"
+            android:hint="Size"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,7 +148,7 @@
         app:layout_constraintTop_toTopOf="@+id/add_to_cart"
         app:layout_constraintBottom_toBottomOf="@id/add_to_cart"
         app:layout_constraintEnd_toEndOf="@+id/size"
-        />
+         />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"

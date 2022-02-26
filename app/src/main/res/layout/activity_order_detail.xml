@@ -1,32 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scrollview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f5"
-    tools:context=".orderDetailActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    tools:context=".orderDetailActivity"
+    tools:ignore="HardcodedText">
 
     <GridView
         android:id="@+id/card"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="10sp"
-        android:gravity="center"
-        android:horizontalSpacing="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:horizontalSpacing="20sp"
         android:numColumns="1"
-        android:paddingVertical="10sp"
-        android:scrollbarThumbVertical="@android:color/transparent"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
+        android:verticalSpacing="20sp"
         app:layout_constraintBottom_toTopOf="@id/addresscard"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/addresscard"
@@ -35,14 +28,12 @@
         android:layout_marginStart="10sp"
         android:layout_marginTop="20sp"
         android:layout_marginEnd="10sp"
-        app:layout_constraintTop_toBottomOf="@+id/card">
+        app:layout_constraintBottom_toTopOf="@id/totalcard"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/deliveryaddress"
@@ -76,9 +67,9 @@
         android:layout_height="40sp"
         android:layout_margin="10sp"
         android:padding="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addresscard">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/total"
@@ -102,4 +93,3 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>

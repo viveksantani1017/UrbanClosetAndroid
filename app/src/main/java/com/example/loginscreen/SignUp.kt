@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.loginscreen.api.Productapi
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +31,7 @@ class SignUp : AppCompatActivity() {
         supportActionBar?.hide()
         val tvlogin = findViewById<TextView>(R.id.tvlogin)
         tvlogin.setOnClickListener {
-            var intent = Intent(this, login::class.java)
+            val intent = Intent(this, login::class.java)
             startActivity(intent)
         }
 
@@ -46,7 +47,7 @@ class SignUp : AppCompatActivity() {
         etphonenumber = findViewById(R.id.edittextphonenumber)
         etemail = findViewById(R.id.edittextemail)
 
-        var btnsignup = findViewById<Button>(R.id.btnsignup)
+        val btnsignup = findViewById<Button>(R.id.btnsignup)
         btnsignup.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 signupButtonClicked()
@@ -81,7 +82,7 @@ class SignUp : AppCompatActivity() {
             }
         }
     private fun authenticate(username: String, password: String,phonenumber: String,email: String): Boolean {
-        val url = URL("http://192.168.8.79:8084/UrbanClosetApache/signup")
+        val url = URL("${Productapi.API_URL}/signup")
         val connection = (url.openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"
             doInput = true

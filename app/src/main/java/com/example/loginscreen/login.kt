@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import com.example.loginscreen.api.Productapi
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.*
 import org.json.JSONArray
@@ -78,7 +79,7 @@ class login : AppCompatActivity() {
     }
 
     private fun authenticate(username: String, password: String): Int {
-        val url = URL("http://192.168.102.37:8084/UrbanClosetApache/users")
+        val url = URL("${Productapi.API_URL}/users")
         val connection = (url.openConnection() as HttpURLConnection).apply {
             requestMethod = "POST"
             doInput = true

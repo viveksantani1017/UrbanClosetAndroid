@@ -1,10 +1,8 @@
 package com.example.loginscreen
 
-import android.content.ClipData
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -16,7 +14,7 @@ import com.example.loginscreen.api.Categoryapi
 import com.example.loginscreen.api.NewProductApi
 import com.example.loginscreen.api.Productapi
 import com.example.loginscreen.models.Category
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
@@ -38,6 +36,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val pref = getSharedPreferences("UrbanCloset", MODE_PRIVATE)
+        val UserId = pref.getInt("UserID",0)
         drawer = findViewById(R.id.drawer)
         drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
 
@@ -52,14 +53,31 @@ class MainActivity : AppCompatActivity() {
 
             when (menuItem.itemId) {
                 R.id.menuprofile -> {
-                    var intent = Intent(this, ProfileActivity::class.java)
+                    val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
                     drawer.closeDrawer(GravityCompat.START)
                 }
                 R.id.menuorder -> {
-                    var intent = Intent(this, OrderActivity::class.java)
-                    startActivity(intent)
-                    drawer.closeDrawer(GravityCompat.START)
+                    if(UserId == 0)
+                    {
+                        MaterialAlertDialogBuilder(this)
+                            .setTitle("Log In To See Your Orders")
+                            .setNeutralButton("cancel") { dialog, which ->
+                                closeContextMenu()
+                            }
+                            .setPositiveButton("Login") { dialog, which ->
+                                val intent = Intent(this,login::class.java)
+                                startActivity(intent)
+                            }
+                            .show()
+                    }
+                    else
+                    {
+                        val intent = Intent(this, OrderActivity::class.java)
+                        startActivity(intent)
+                        drawer.closeDrawer(GravityCompat.START)
+
+                    }
                 }
             }
             true
@@ -69,25 +87,25 @@ class MainActivity : AppCompatActivity() {
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
         val grdProductswomen = findViewById<GridView>(R.id.grdProductswomen)
 
-        val carouselView = findViewById(R.id.carouselView) as CarouselView;
-        carouselView.setPageCount(sampleImages.size);
-        carouselView.setImageListener(imageListener);
+        val carouselView = findViewById(R.id.carouselView) as CarouselView
+        carouselView.setPageCount(sampleImages.size)
+        carouselView.setImageListener(imageListener)
 
         CoroutineScope(Dispatchers.IO).launch {
             grdProducts.setOnItemClickListener { _, view, _, _ ->
                 val catId = view.contentDescription.toString().toInt()
-                val intent = Intent(this@MainActivity,ProductListActivity::class.java)
-                intent.putExtra("CatId",catId)
-                intent.putExtra("CategoryName","Men Products")
+                val intent = Intent(this@MainActivity, ProductListActivity::class.java)
+                intent.putExtra("CatId", catId)
+                intent.putExtra("CategoryName", "Men Products")
                 CoroutineScope(Dispatchers.Main).launch {
                     startActivity(intent)
                 }
             }
             grdProductswomen.setOnItemClickListener { _, view, _, _ ->
                 val catId = view.contentDescription.toString().toInt()
-                val intent = Intent(this@MainActivity,ProductListActivity::class.java)
-                intent.putExtra("CatId",catId)
-                intent.putExtra("CategoryName","Women Products")
+                val intent = Intent(this@MainActivity, ProductListActivity::class.java)
+                intent.putExtra("CatId", catId)
+                intent.putExtra("CategoryName", "Women Products")
                 CoroutineScope(Dispatchers.Main).launch {
                     startActivity(intent)
                 }
@@ -95,27 +113,25 @@ class MainActivity : AppCompatActivity() {
             val categorymen = Categoryapi.getMens()
             val categorywomen = Categoryapi.getWomens()
             val newproduct = NewProductApi.getAll()
-            if(categorymen.isNotEmpty() && categorywomen.isNotEmpty() )
-            {
+            if (categorymen.isNotEmpty() && categorywomen.isNotEmpty()) {
                 for (category in categorymen)
-                    Categoryapi.downloadImage(this@MainActivity,category)
+                    Categoryapi.downloadImage(this@MainActivity, category)
                 for (category in categorywomen)
-                    Categoryapi.downloadImage(this@MainActivity,category)
+                    Categoryapi.downloadImage(this@MainActivity, category)
 //                for (product in newproduct)
 //                    NewProductApi.downloadImage(this@MainActivity,product)
 
-            var adaptermen = CategoryGridAdapter(this@MainActivity,categorymen)
-            withContext(Dispatchers.Main){grdProducts.adapter = adaptermen}
-                var adapterwomen = CategoryGridAdapter(this@MainActivity,categorywomen)
-                withContext(Dispatchers.Main){grdProductswomen.adapter = adapterwomen}
+                val adaptermen = CategoryGridAdapter(this@MainActivity, categorymen)
+                withContext(Dispatchers.Main) { grdProducts.adapter = adaptermen }
+                val adapterwomen = CategoryGridAdapter(this@MainActivity, categorywomen)
+                withContext(Dispatchers.Main) { grdProductswomen.adapter = adapterwomen }
 //                var adapternewproduct = ProductGridAdapter(this@MainActivity,newproduct)
 //                withContext(Dispatchers.Main){grdProductNewest.adapter = adapternewproduct}
-            }
-            else
-            {
-             withContext(Dispatchers.Main){
-                 Toast.makeText(this@MainActivity, "Empty Category Array", Toast.LENGTH_SHORT)
-                 .show()}
+            } else {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@MainActivity, "Empty Category Array", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
         }
 
@@ -123,7 +139,6 @@ class MainActivity : AppCompatActivity() {
 
     var imageListener: ImageListener = object : ImageListener {
         override fun setImageForPosition(position: Int, imageView: ImageView) {
-            // You can use Glide or Picasso here
             imageView.setImageResource(sampleImages[position])
         }
 
@@ -131,10 +146,8 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean
-    {
-        if (item.itemId == android.R.id.home)
-        {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
             if (drawer.isDrawerOpen(GravityCompat.START))
                 drawer.closeDrawer(GravityCompat.START)
             else
