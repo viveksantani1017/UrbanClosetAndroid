@@ -15,25 +15,31 @@
         android:theme="@style/Theme.LoginScreen"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".OrderActivity"
-            android:exported="true" >
+            android:name=".checkout_Activity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
+
+        <activity
+            android:name=".OrderActivity"
+            android:exported="true" />
         <activity
             android:name=".orderDetailActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".DetailActivity"
             android:exported="true" />
         <activity
             android:name=".ProductListActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".productdetails"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ProfileActivity"
             android:exported="true" />
@@ -52,11 +58,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

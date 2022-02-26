@@ -1,19 +1,18 @@
 package com.example.loginscreen.adapters
 
 import android.app.Activity
-import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.example.loginscreen.R
-import com.example.loginscreen.models.Product
+import com.example.loginscreen.models.checkout
 
 class checkoutlistAdapter(
 
     private val activity: Activity,
-    private val objects: Array<Product>
-) : ArrayAdapter<Product>(activity, R.layout.checkoutlist_grid, objects) {
+    private val objects: Array<checkout>
+) : ArrayAdapter<checkout>(activity, R.layout.checkoutlist_grid, objects) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var view: View? = convertView
         val viewHolder: ViewHolder
@@ -33,7 +32,7 @@ class checkoutlistAdapter(
 
         viewHolder.name.text = objects[position].name
         viewHolder.size.text = objects[position].size
-        viewHolder.price.text = objects[position].price.toString()
+        viewHolder.price.text = objects[position].totalprice.toString()
         viewHolder.quantity.text = objects[position].quantity.toString()
 
         view?.contentDescription = objects[position].id.toString()
