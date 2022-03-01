@@ -3,6 +3,7 @@ package com.example.loginscreen
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -38,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pref = getSharedPreferences("UrbanCloset", MODE_PRIVATE)
-        val UserId = pref.getInt("UserID",0)
+        val UserId = pref.getInt("UserID", 0)
         drawer = findViewById(R.id.drawer)
         drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
 
@@ -51,37 +52,36 @@ class MainActivity : AppCompatActivity() {
         navigationView = findViewById(R.id.navView)
         navigationView.setNavigationItemSelectedListener { menuItem ->
 
-            when (menuItem.itemId) {
-                R.id.menuprofile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
+
+
+
+            if (menuItem.itemId == R.id.menuprofile) {
+                val intent = Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                drawer.closeDrawer(GravityCompat.START)
+            } else if (menuItem.itemId == R.id.menuorder) {
+                if (UserId == 0) {
+                    MaterialAlertDialogBuilder(this)
+                        .setTitle("Log In To See Your Orders")
+                        .setNeutralButton("cancel") { dialog, which ->
+                            closeContextMenu()
+                        }
+                        .setPositiveButton("Login") { dialog, which ->
+                            val intent = Intent(this, login::class.java)
+                            startActivity(intent)
+                        }
+                        .show()
+                } else {
+                    val intent = Intent(this, OrderActivity::class.java)
                     startActivity(intent)
                     drawer.closeDrawer(GravityCompat.START)
-                }
-                R.id.menuorder -> {
-                    if(UserId == 0)
-                    {
-                        MaterialAlertDialogBuilder(this)
-                            .setTitle("Log In To See Your Orders")
-                            .setNeutralButton("cancel") { dialog, which ->
-                                closeContextMenu()
-                            }
-                            .setPositiveButton("Login") { dialog, which ->
-                                val intent = Intent(this,login::class.java)
-                                startActivity(intent)
-                            }
-                            .show()
-                    }
-                    else
-                    {
-                        val intent = Intent(this, OrderActivity::class.java)
-                        startActivity(intent)
-                        drawer.closeDrawer(GravityCompat.START)
 
-                    }
                 }
             }
             true
         }
+
+
         val horizontalScrollView = findViewById<HorizontalScrollView>(R.id.horizontalScrollView)
 //        val grdProductNewest = horizontalScrollView.findViewById<GridView>(R.id.grdProductsnewest)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
@@ -114,10 +114,10 @@ class MainActivity : AppCompatActivity() {
             val categorywomen = Categoryapi.getWomens()
             val newproduct = NewProductApi.getAll()
             if (categorymen.isNotEmpty() && categorywomen.isNotEmpty()) {
-                for (category in categorymen)
-                    Categoryapi.downloadImage(this@MainActivity, category)
-                for (category in categorywomen)
-                    Categoryapi.downloadImage(this@MainActivity, category)
+//                for (category in categorymen)
+//                    Categoryapi.downloadImage(this@MainActivity, category)
+//                for (category in categorywomen)
+//                    Categoryapi.downloadImage(this@MainActivity, category)
 //                for (product in newproduct)
 //                    NewProductApi.downloadImage(this@MainActivity,product)
 
@@ -157,4 +157,8 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.settingsmenu, menu)
+        return true
+    }
 }

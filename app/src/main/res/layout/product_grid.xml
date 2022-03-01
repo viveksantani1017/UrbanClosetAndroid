@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:elevation="@dimen/cardview_compat_inset_shadow">
+    android:elevation="@dimen/cardview_compat_inset_shadow"
+    app:strokeColor="#fafafa"
+    app:strokeWidth="1dp"
+    tools:ignore="ContentDescription">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,13 +19,13 @@
             android:id="@+id/productimage"
             android:layout_width="150dp"
             android:layout_height="210dp"
-            android:contentDescription="desc"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toTopOf="@id/tv_men_category"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/firstproduct1" />
+            app:srcCompat="@drawable/firstproduct1"
+            />
 
         <TextView
             android:id="@+id/tvcategoryname"
@@ -49,7 +52,6 @@
                 android:id="@+id/tvproductprice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Price"
                 android:textSize="13sp"
                 />
 

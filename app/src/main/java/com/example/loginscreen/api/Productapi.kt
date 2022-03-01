@@ -17,7 +17,7 @@ import java.net.URL
 class Productapi {
     companion object {
 
-        val API_URL = "http://10.1.90.19:8084/UrbanClosetApache"
+        val API_URL = "http://172.29.0.59:8084/UrbanClosetApache"
 
         internal fun getAll(id: Int, context: Context): Array<Product> {
             val pref = context.getSharedPreferences("UrbanCloset", AppCompatActivity.MODE_PRIVATE)

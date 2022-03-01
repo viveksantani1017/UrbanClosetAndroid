@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     tools:openDrawer="start"
-    android:background="#f5f5f5"
     >
 
 
@@ -57,7 +56,6 @@
                 />
             <GridView
                 app:layout_constraintTop_toBottomOf="@id/tv_men_collection"
-                android:layout_marginVertical="20sp"
                 android:id="@+id/grdProducts"
                 android:numColumns="2"
                 android:verticalSpacing="10dp"
@@ -74,7 +72,7 @@
                 android:id="@+id/tv_women_collection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Womens Collection"
+                android:text="@string/women_collection"
                 android:textSize="20sp"
                 style="@style/textview_style"
                 app:layout_constraintBottom_toTopOf="@id/tv_women_collection"
@@ -143,7 +141,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="Scroll To Top"
+                android:text="@string/scroll_to_top"
                 app:cornerRadius="30sp"
                 app:icon="@drawable/ic_arrow_upward_black_18dp"
                 app:iconTint="?colorPrimary"

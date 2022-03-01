@@ -1,7 +1,6 @@
 package com.example.loginscreen.api
 
 import com.example.loginscreen.models.Order
-import com.example.loginscreen.models.Product
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
@@ -38,7 +37,6 @@ class OrderApi {
                         ordernumber
                     )
                     orderList.add(orderdata)
-
                     i++
                 }
             }
