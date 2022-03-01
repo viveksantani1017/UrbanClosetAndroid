@@ -1,30 +1,33 @@
 package com.example.loginscreen
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
 import android.widget.Toast
-import com.example.loginscreen.adapters.wishlistAdapter
-import com.example.loginscreen.api.WishlistApi
+import com.example.loginscreen.adapters.checkoutlistAdapter
+import com.example.loginscreen.api.checkoutApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class wishlist : AppCompatActivity() {
+class checkout_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wishlist)
-        var grid = findViewById<GridView>(R.id.wishlistfgrid)
+        setContentView(R.layout.activity_checkout)
+
+        val orderlist = findViewById<GridView>(R.id.orderlist)
+
         CoroutineScope(Dispatchers.IO).launch {
-            val orders = WishlistApi.getAll()
+            val orders = checkoutApi.getAll()
             if (orders.isNotEmpty()) {
-                val adapter = wishlistAdapter(this@wishlist, orders)
-                withContext(Dispatchers.Main) { grid.adapter = adapter }
+                val adapter = checkoutlistAdapter(this@checkout_Activity, orders)
+                withContext(Dispatchers.Main) { orderlist.adapter = adapter }
             } else {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        this@wishlist,
+                        this@checkout_Activity,
                         "Empty Order Array",
                         Toast.LENGTH_SHORT
                     )
@@ -32,5 +35,7 @@ class wishlist : AppCompatActivity() {
                 }
             }
         }
+
+
     }
 }

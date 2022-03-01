@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CartActivity">
-
+    tools:context=".checkout_Activity"
+    android:background="#f5f5f5">
     <GridView
-        android:id="@+id/cartgrid"
+        android:id="@+id/orderlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,5 +17,6 @@
         android:verticalSpacing="20sp"
         android:horizontalSpacing="20sp"
         android:numColumns="1"
+
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

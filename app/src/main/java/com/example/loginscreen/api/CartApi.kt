@@ -6,7 +6,6 @@ import android.graphics.BitmapFactory
 import android.util.Log
 import com.example.loginscreen.models.Product
 import com.example.loginscreen.models.checkout
-import com.example.loginscreen.models.wishlistmodel
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -14,14 +13,15 @@ import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 
-class WishlistApi {
+class CartApi {
 
     companion object {
 
-        internal fun getAll(): Array<wishlistmodel> {
-            val wishlist = arrayListOf<wishlistmodel>()
 
-            val url = URL("${Productapi.API_URL}/getwishlist?userid=2")
+        internal fun getAll(): Array<checkout> {
+            val checkoutlist = arrayListOf<checkout>()
+
+            val url = URL("${Productapi.API_URL}/addtocart?userid=10")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
@@ -36,14 +36,17 @@ class WishlistApi {
                 var i = 0
                 while (i < orderJsonArray.length()) {
                     val orderJson = orderJsonArray.getJSONObject(i)
-                    var wishlistdata = wishlistmodel(
-                        orderJson.getInt("Productid"),
+                    var orderdata = checkout(
+                        orderJson.getInt("Orderid"),
                         orderJson.getString("image"),
+                        orderJson.getInt("TotalPrice"),
                         orderJson.getString("ProductName"),
-                        orderJson.getInt("ProductQuantity"),
-                        orderJson.getString("ProductPrice")
+                        orderJson.getString("Size"),
+                        orderJson.getInt("Quantity"),
+                        orderJson.getString("ProductPrice"),
+                        orderJson.getString("Address")
                     )
-                    wishlist.add(wishlistdata)
+                    checkoutlist.add(orderdata)
                     i++
                 }
             }
@@ -51,7 +54,7 @@ class WishlistApi {
                 Log.i("error","Hello")
             }
 
-            return wishlist.toTypedArray()
+            return checkoutlist.toTypedArray()
         }
 
         internal fun downloadImage(context: Context, product: Product) {
