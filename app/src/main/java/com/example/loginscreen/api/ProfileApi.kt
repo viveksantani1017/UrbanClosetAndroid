@@ -38,9 +38,11 @@ class ProfileApi {
                 while (i < profileJson.length()) {
                     val ProfileJson = profileJson.getJSONObject(i)
                     val productdata = Profile(
-                        ProfileJson.getInt("UserPhNo"),
+                        ProfileJson.getInt("Userid"),
                         ProfileJson.getString("UserName"),
-                        ProfileJson.getString("UserEmail")
+                        ProfileJson.getString("UserEmail"),
+                        ProfileJson.getString("Address1"),
+                        ProfileJson.getString("UserPhNo")
                     )
                     profile.add(productdata)
 
@@ -72,9 +74,10 @@ class ProfileApi {
                 with(productsJson)
                 {
                     return Profile(
-                        getInt("mobilenumber"),
                         getString("name"),
-                        getString("Email")
+                        getString("mobilenumber"),
+                        getString("Email"),
+                        getString("Address1")
                     )
                 }
             }

@@ -1,7 +1,9 @@
 package com.example.loginscreen.models
 
 data class Profile(
-    var phonenumber: Int,
-    var name: String,
-    var Email: String
+    var Userid: Int,
+    var UserName: String,
+    var Useremail: String,
+    var Address1: String,
+    var UserPhNo: String,
 )

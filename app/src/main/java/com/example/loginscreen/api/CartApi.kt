@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import com.example.loginscreen.models.Product
-import com.example.loginscreen.models.checkout
+import com.example.loginscreen.models.Profile
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -18,8 +18,8 @@ class CartApi {
     companion object {
 
 
-        internal fun getAll(): Array<checkout> {
-            val checkoutlist = arrayListOf<checkout>()
+        internal fun getAll(): Array<Profile> {
+            val checkoutlist = arrayListOf<Profile>()
 
             val url = URL("${Productapi.API_URL}/addtocart?userid=10")
             val connection = (url.openConnection() as HttpURLConnection).apply {
@@ -36,7 +36,7 @@ class CartApi {
                 var i = 0
                 while (i < orderJsonArray.length()) {
                     val orderJson = orderJsonArray.getJSONObject(i)
-                    var orderdata = checkout(
+                    var orderdata = Profile(
                         orderJson.getInt("Orderid"),
                         orderJson.getString("image"),
                         orderJson.getInt("TotalPrice"),
