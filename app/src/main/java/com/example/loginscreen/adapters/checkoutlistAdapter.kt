@@ -21,6 +21,7 @@ class checkoutlistAdapter(
             view = activity.layoutInflater.inflate(R.layout.checkoutlist_grid, parent, false)
 
             viewHolder = ViewHolder()
+            viewHolder.image= view.findViewById(R.id.productimage)
             viewHolder.name = view.findViewById(R.id.productname)
             viewHolder.size = view.findViewById(R.id.sizevalue)
             viewHolder.price = view.findViewById(R.id.pricevalue)
@@ -30,9 +31,10 @@ class checkoutlistAdapter(
             viewHolder = view.tag as ViewHolder
         }
 
+        viewHolder.image.text = objects[position].productimage
         viewHolder.name.text = objects[position].name
         viewHolder.size.text = objects[position].size
-        viewHolder.price.text = objects[position].totalprice.toString()
+        viewHolder.price.text = objects[position].price
         viewHolder.quantity.text = objects[position].quantity.toString()
 
         view?.contentDescription = objects[position].id.toString()
@@ -43,9 +45,11 @@ class checkoutlistAdapter(
     companion object {
         class ViewHolder {
             lateinit var name: TextView
+            lateinit var image: TextView
             lateinit var size: TextView
             lateinit var price: TextView
             lateinit var quantity: TextView
+            lateinit var address: TextView
         }
     }
 }

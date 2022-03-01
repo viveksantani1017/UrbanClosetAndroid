@@ -15,16 +15,13 @@
         android:theme="@style/Theme.LoginScreen"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".checkout_Activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:name=".CartActivity"
+            android:exported="true" >
 
         </activity>
-
+        <activity
+            android:name=".checkout_Activity"
+            android:exported="false"></activity>
         <activity
             android:name=".OrderActivity"
             android:exported="true" />
@@ -45,10 +42,14 @@
             android:exported="true" />
         <activity
             android:name=".wishlist"
-            android:exported="false" />
-        <activity
-            android:name=".cart"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+  
         <activity
             android:name=".login"
             android:exported="true" />
@@ -57,9 +58,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

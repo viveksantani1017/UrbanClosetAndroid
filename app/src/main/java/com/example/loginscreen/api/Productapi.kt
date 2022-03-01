@@ -17,7 +17,7 @@ import java.net.URL
 class Productapi {
     companion object {
 
-        val API_URL = "http://10.1.90.19:8084/UrbanClosetApache"
+        val API_URL = "http://172.31.0.2:8084/UrbanClosetApache"
 
         internal fun getAll(id: Int, context: Context): Array<Product> {
             val pref = context.getSharedPreferences("UrbanCloset", AppCompatActivity.MODE_PRIVATE)
@@ -156,7 +156,7 @@ class Productapi {
                     return JSONObject(reader.readText())
                 }
             } catch (ex: Exception) {
-                Log.e("Add To Wishlist", ex.message!!)
+                Log.e("Add To wishlistmodel", ex.message!!)
             } finally {
                 connection.disconnect()
             }
@@ -180,7 +180,7 @@ class Productapi {
                     return JSONObject(reader.readText())
                 }
             } catch (ex: Exception) {
-                Log.e("Remove Wishlist", ex.message!!)
+                Log.e("Remove wishlistmodel", ex.message!!)
             } finally {
                 connection.disconnect()
             }

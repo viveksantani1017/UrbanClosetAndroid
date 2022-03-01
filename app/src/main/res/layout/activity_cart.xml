@@ -4,37 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cart">
+    tools:context=".CartActivity">
 
+    <GridView
+        android:id="@+id/cartgrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10sp"
+        android:layout_marginHorizontal="20dp"
+        android:verticalSpacing="20sp"
+        android:horizontalSpacing="20sp"
+        android:numColumns="1"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-    <!--<TextView-->
-<!--                android:id="@+id/quantity"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="10sp"-->
-<!--                android:layout_marginTop="10sp"-->
-<!--                android:text="@string/quantity"-->
-<!--                android:textAppearance="?attr/textAppearanceBody2"-->
-<!--                android:textColor="?android:attr/textColorSecondary"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/productimage"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/price" />-->
-
-
-<!--            <EditText-->
-<!--                android:id="@+id/etquantity"-->
-<!--                android:layout_width="85dp"-->
-<!--                android:layout_height="19dp"-->
-<!--                android:layout_marginStart="8dp"-->
-<!--                android:layout_marginTop="10sp"-->
-<!--                android:inputType="number"-->
-<!--                android:padding="0sp"-->
-<!--                android:textAppearance="?attr/textAppearanceBody2"-->
-<!--                android:textColor="?android:attr/textColorSecondary"-->
-<!--                app:layout_constraintStart_toEndOf="@+id/quantity"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/price"-->
-<!--                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">-->
-
-<!--            </EditText>-->

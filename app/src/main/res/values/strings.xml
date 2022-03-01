@@ -11,7 +11,7 @@
     <string name="updatecart">Update Cart</string>
     <string name="product_image">Product Image</string>
     <string name="categoryname">Category Name</string>
-    <string name="update_wishlist">update wishlist</string>
+    <string name="update_wishlist">update \n wishlist</string>
     <string name="UsernameHint">Enter UserName</string>
     <string name="PasswordHint">Enter Password</string>
     <string name="PhoneNumberHint">Enter PhoneNumber</string>
@@ -30,6 +30,7 @@
     <string name="date">Date:</string>
     <string name="status">Status:</string>
     <string name="defaultsize">1</string>
+    <string name="sizevalue">M</string>
 
     <string-array name="size_menu">
         <item>M</item>
