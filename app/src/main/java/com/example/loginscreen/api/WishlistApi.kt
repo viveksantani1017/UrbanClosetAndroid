@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
 import com.example.loginscreen.models.Product
-import com.example.loginscreen.models.checkout
+import com.example.loginscreen.models.Profile
 import com.example.loginscreen.models.wishlistmodel
 import org.json.JSONObject
 import java.io.File

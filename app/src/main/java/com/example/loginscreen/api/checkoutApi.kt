@@ -1,7 +1,7 @@
 package com.example.loginscreen.api
 
 import android.util.Log
-import com.example.loginscreen.models.checkout
+import com.example.loginscreen.models.Profile
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
@@ -11,8 +11,8 @@ class checkoutApi {
     companion object {
 
 
-        internal fun getAll(): Array<checkout> {
-            val checkoutlist = arrayListOf<checkout>()
+        internal fun getAll(): Array<Profile> {
+            val checkoutlist = arrayListOf<Profile>()
 
             val url = URL("${Productapi.API_URL}/addtocart?userid=2")
             val connection = (url.openConnection() as HttpURLConnection).apply {
@@ -29,7 +29,7 @@ class checkoutApi {
                 var i = 0
                 while (i < orderJsonArray.length()) {
                     val orderJson = orderJsonArray.getJSONObject(i)
-                    var orderdata = checkout(
+                    var orderdata = Profile(
                         orderJson.getInt("orderedproductid"),
                         orderJson.getString("image"),
                         orderJson.getInt("TotalPrice"),
