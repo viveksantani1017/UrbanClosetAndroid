@@ -1,6 +1,7 @@
 package com.example.loginscreen.adapters
 
 import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.loginscreen.R
 import com.example.loginscreen.api.Productapi
+import com.example.loginscreen.login
 import com.example.loginscreen.models.Product
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -38,8 +42,13 @@ class ProductGridAdapter(
         } else {
             viewHolder = view.tag as ViewHolder
         }
-
         viewHolder.wishlistIcon.setOnClickListener {
+            val pref = context.getSharedPreferences("UrbanCloset", AppCompatActivity.MODE_PRIVATE)
+            val userid = pref.getInt("UserID", 0)
+            if (userid == 0) {
+                Toast.makeText(activity, "Login To Add In Wishlist", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             if (!objects[position].inwishlist) {
                 CoroutineScope(Dispatchers.IO).launch {
                     val response = Productapi.addToWishlist(

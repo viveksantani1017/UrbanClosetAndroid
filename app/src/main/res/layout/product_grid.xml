@@ -20,10 +20,6 @@
             android:layout_width="150dp"
             android:layout_height="210dp"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@id/tv_men_category"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/firstproduct1"
             />
 

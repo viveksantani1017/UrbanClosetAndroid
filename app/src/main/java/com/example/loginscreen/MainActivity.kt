@@ -51,15 +51,18 @@ class MainActivity : AppCompatActivity() {
 
         navigationView = findViewById(R.id.navView)
         navigationView.setNavigationItemSelectedListener { menuItem ->
-
-
-
-
             if (menuItem.itemId == R.id.menuprofile) {
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
                 drawer.closeDrawer(GravityCompat.START)
-            } else if (menuItem.itemId == R.id.menuorder) {
+            }
+            else if(menuItem.itemId == R.id.menucart) {
+                    val intent = Intent(this, CartActivity::class.java)
+                    startActivity(intent)
+                    drawer.closeDrawer(GravityCompat.START)
+
+            }
+            else if (menuItem.itemId == R.id.menuorder) {
                 if (UserId == 0) {
                     MaterialAlertDialogBuilder(this)
                         .setTitle("Log In To See Your Orders")

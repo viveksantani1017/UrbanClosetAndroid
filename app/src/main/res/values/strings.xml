@@ -34,6 +34,9 @@
     <string name="login">LogIn</string>
     <string name="women_collection">WOMEN COLLECTION</string>
     <string name="scroll_to_top">Scroll To Top</string>
+    <string name="cart">Cart</string>
+    <string name="rupeetext">₹</string>
+    <string name="checkout">CHECKOUT</string>
 
     <string-array name="size_menu">
         <item>M</item>

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".productdetails"
+    tools:context=".ProductDetails"
     android:background="#f5f5f5"
     tools:ignore="HardcodedText , contentDescription"
     >

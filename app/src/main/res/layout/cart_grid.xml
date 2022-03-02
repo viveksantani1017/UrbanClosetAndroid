@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="180sp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="10sp"
-    android:background="@drawable/carttile"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.492"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.073">
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -31,10 +28,10 @@
             app:riv_corner_radius="8dip" />
 
         <RelativeLayout
-            android:layout_toEndOf="@id/productimage"
-            android:layout_marginStart="10sp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginStart="10sp"
+            android:layout_toEndOf="@id/productimage">
 
             <TextView
                 android:id="@+id/productname"
@@ -53,21 +50,21 @@
                 android:id="@+id/size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/productname"
                 android:layout_marginTop="10sp"
                 android:text="@string/size"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_below="@id/productname" />
+                android:textColor="?android:attr/textColorSecondary" />
 
             <TextView
                 android:id="@+id/sizevalue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/productname"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10sp"
                 android:layout_toEndOf="@id/size"
-                android:text="@string/sizevalue"
+                android:text="M"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:textColor="?android:attr/textColorSecondary" />
 
@@ -75,76 +72,70 @@
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/size"
                 android:layout_marginTop="10sp"
                 android:text="@string/price"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_below="@id/size" />
+                android:textColor="?android:attr/textColorSecondary" />
 
             <TextView
                 android:id="@+id/pricevalue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/sizevalue"
+                android:layout_marginStart="15sp"
                 android:layout_marginTop="10sp"
+                android:layout_toEndOf="@id/price"
                 android:text="$999"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="?android:attr/textColorSecondary"
-                android:layout_below="@id/sizevalue"
-                android:layout_toEndOf="@id/price" />
+                android:textColor="?android:attr/textColorSecondary" />
 
             <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/quantity"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="40sp"
+                android:layout_below="@id/price"
                 android:layout_marginTop="10sp"
                 android:layout_marginEnd="10sp"
-                android:padding="0sp"
                 android:hint="@string/quantity"
-                android:layout_below="@id/price">
+                android:padding="0sp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/quantityvalue"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:padding="0sp"
                     android:inputType="number"
+                    android:padding="0sp"
                     android:text="@string/defaultsize" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/btn_delete"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="61dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="10sp"
-                android:insetLeft="0sp"
-                android:insetTop="0sp"
-                android:insetRight="0sp"
-                android:insetBottom="0sp"
-                android:padding="0sp"
-                android:text="@string/delete"
-                android:textColor="#DD2C00"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/quantity"
+                android:layout_marginVertical="10sp"
+                android:text="REMOVE"
+                android:textColor="#DD2C00"
+                android:textSize="15sp"
                 tools:ignore="TouchTargetSizeCheck" />
 
-            <com.google.android.material.button.MaterialButton
+            <TextView
                 android:id="@+id/btn_update_cart"
-                style="?attr/borderlessButtonStyle"
                 android:layout_width="114dp"
                 android:layout_height="20dp"
-                android:layout_marginStart="10sp"
-                android:layout_marginTop="10sp"
-                android:insetLeft="0sp"
-                android:insetTop="0sp"
-                android:insetRight="0sp"
-                android:insetBottom="0sp"
-                android:padding="0sp"
-                android:text="@string/updatecart"
-                android:layout_toEndOf="@id/btn_delete"
                 android:layout_below="@id/quantity"
+                android:layout_marginStart="10sp"
+                android:layout_marginVertical="10sp"
+                android:layout_toEndOf="@id/btn_delete"
+                android:text="@string/updatecart"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="?colorPrimary"
+                android:textSize="15sp"
                 tools:ignore="TouchTargetSizeCheck" />
         </RelativeLayout>
 
@@ -152,3 +143,4 @@
 
 </com.google.android.material.card.MaterialCardView>
 
+</LinearLayout>

@@ -32,6 +32,7 @@
         <entry key="..\:/androidproject/app/src/main/res/drawable/ic_uclogosvg_svg.xml" value="0.26614583333333336" />
         <entry key="..\:/androidproject/app/src/main/res/drawable/password.xml" value="0.26614583333333336" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_cart.xml" value="0.25" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/activity_checkout.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_login.xml" value="0.264" />
@@ -47,7 +48,7 @@
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_test.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_wishlist.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/app_bar_home.xml" value="0.24635416666666668" />
-        <entry key="..\:/androidproject/app/src/main/res/layout/cart_grid.xml" value="0.25" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/cart_grid.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/checkoutlist.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/checkoutlist_grid.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/content_home.xml" value="0.24635416666666668" />
@@ -57,7 +58,9 @@
         <entry key="..\:/androidproject/app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/order_list.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/orderdetails_grid.xml" value="0.25" />
-        <entry key="..\:/androidproject/app/src/main/res/layout/product_grid.xml" value="0.4" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/product_grid.xml" value="0.152" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/totalcardgrid.xml" value="0.25" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/wishlist_grid.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/menu/menu.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/menu/settingsmenu.xml" value="0.25" />

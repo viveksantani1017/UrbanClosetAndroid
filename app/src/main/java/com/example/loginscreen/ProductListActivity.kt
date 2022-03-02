@@ -28,7 +28,7 @@ class ProductListActivity : AppCompatActivity() {
             grdProducts.setOnItemClickListener { _, view, _, _ ->
 
                 val productId = view.contentDescription.toString().toInt()
-                val intent = Intent(this@ProductListActivity, productdetails::class.java)
+                val intent = Intent(this@ProductListActivity, ProductDetails::class.java)
                 intent.putExtra("ProductID", productId)
 
                 CoroutineScope(Dispatchers.Main).launch {

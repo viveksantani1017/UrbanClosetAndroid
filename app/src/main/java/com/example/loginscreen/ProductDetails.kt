@@ -19,10 +19,10 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 
-class productdetails : AppCompatActivity() {
+class ProductDetails : AppCompatActivity() {
 
     private var productId: Int? = null
-    lateinit var wishlistIcon:ImageView
+    private lateinit var wishlistIcon:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -34,7 +34,7 @@ class productdetails : AppCompatActivity() {
         val pref = getSharedPreferences("UrbanCloset", MODE_PRIVATE)
         val userid = pref.getInt("UserID", 0)
         productId = intent.getIntExtra("ProductID", 0)
-        wishlistIcon = findViewById<ImageView>(R.id.wishlist)
+        wishlistIcon = findViewById(R.id.wishlist)
 
         val sizes = resources.getStringArray(R.array.size_menu)
         val arrayAdapter = ArrayAdapter(this, R.layout.dropdown, sizes)
@@ -46,7 +46,23 @@ class productdetails : AppCompatActivity() {
         val tvprice = findViewById<TextView>(R.id.price)
 
         wishlistIcon.setOnClickListener {
-            wishlist()
+            if(userid!=0)
+            {
+                wishlist()
+            }
+            else
+            {
+                MaterialAlertDialogBuilder(this@ProductDetails)
+                    .setTitle("Log In To Add Product In Wishlist")
+                    .setNeutralButton("cancel") { _, _ ->
+                        closeContextMenu()
+                    }
+                    .setPositiveButton("Login") { _, _ ->
+                        val intent = Intent(this@ProductDetails, login::class.java)
+                        startActivity(intent)
+                    }
+                    .show()
+            }
         }
 
         btnaddtocart.setOnClickListener {
@@ -58,20 +74,22 @@ class productdetails : AppCompatActivity() {
                 if (response.getBoolean("status")) {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
-                            this@productdetails,
+                            this@ProductDetails,
                             response.getString("message"),
                             Toast.LENGTH_SHORT
                         ).show()
+                        val intent = Intent(this@ProductDetails, CartActivity::class.java)
+                        startActivity(intent)
                     }
                 } else {
                     withContext(Dispatchers.Main) {
-                        MaterialAlertDialogBuilder(this@productdetails)
+                        MaterialAlertDialogBuilder(this@ProductDetails)
                             .setTitle("Log In To Add Product In Cart")
-                            .setNeutralButton("cancel") { dialog, which ->
+                            .setNeutralButton("cancel") { _, _ ->
                                 closeContextMenu()
                             }
-                            .setPositiveButton("Login") { dialog, which ->
-                                val intent = Intent(this@productdetails, login::class.java)
+                            .setPositiveButton("Login") { _, _ ->
+                                val intent = Intent(this@ProductDetails, login::class.java)
                                 startActivity(intent)
                             }
                             .show()
@@ -79,13 +97,12 @@ class productdetails : AppCompatActivity() {
                 }
             }
         }
-
         CoroutineScope(Dispatchers.IO).launch {
-            Productapi.getProduct(productId!!).also {
+            Productapi.getProduct(this@ProductDetails,productId!!).also {
                 if (it != null) {
-                    Productapi.downloadImage(this@productdetails, it)
+                    Productapi.downloadImage(this@ProductDetails, it)
                     withContext(Dispatchers.Main) {
-                        var imgslider = findViewById<CarouselView>(R.id.carouselView)
+                        val imgslider = findViewById<CarouselView>(R.id.carouselView)
 
                         imgslider.setImageListener { position, imageView ->
                             imageView.scaleType = ImageView.ScaleType.FIT_CENTER
@@ -105,12 +122,10 @@ class productdetails : AppCompatActivity() {
             }
         }
     }
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
     }
-
     private fun addToCart(
         price: String,
         quantity: String,
@@ -132,8 +147,7 @@ class productdetails : AppCompatActivity() {
 //                reading the response data
                 val reader = connection.inputStream.bufferedReader()
                 val jsonResponseString = reader.readText()
-                val responseJson = JSONObject(jsonResponseString)
-                return responseJson
+                return JSONObject(jsonResponseString)
             }
         } catch (Ex: Exception) {
             Log.i("Add to Cart Error", Ex.message.toString())
@@ -145,11 +159,11 @@ class productdetails : AppCompatActivity() {
 
     private fun wishlist() {
         CoroutineScope(Dispatchers.IO).launch {
-            val product = Productapi.getProduct(productId!!)
+            val product = Productapi.getProduct(this@ProductDetails,productId!!)
             if (!product!!.inwishlist) {
 
                 val response = Productapi.addToWishlist(
-                    this@productdetails,
+                    this@ProductDetails,
                     productId!!
                 )
                 if (response.getBoolean("status"))
@@ -159,14 +173,14 @@ class productdetails : AppCompatActivity() {
                     }
                 else {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@productdetails, "Login to add", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@ProductDetails, "Login to add", Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
 
             } else {
                 val response = Productapi.removeFromWishlist(
-                    this@productdetails,
+                    this@ProductDetails,
                     productId!!
                 )
                 if (response.getBoolean("status"))

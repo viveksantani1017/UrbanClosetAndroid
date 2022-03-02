@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
-import com.example.loginscreen.models.Orderdetails
+import com.example.loginscreen.models.orderdetails
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -14,10 +14,10 @@ import java.net.URL
 class OrderDetailApi {
 
     companion object {
-        val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
+        const val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
 
-        internal fun getAll(id:Int): Array<Orderdetails> {
-            val productList = arrayListOf<Orderdetails>()
+        internal fun getAll(id:Int): Array<orderdetails> {
+            val productList = arrayListOf<orderdetails>()
 
             val url = URL("$API_URL/orderwisedetail?userid=2&orderid=${id}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
@@ -34,7 +34,7 @@ class OrderDetailApi {
                 var i = 0
                 while (i < orderJsonArray.length()) {
                     val orderJson = orderJsonArray.getJSONObject(i)
-                    var orderdata = Orderdetails(
+                    val orderdata = orderdetails(
                         orderJson.getInt("orderedproductid"),
                         orderJson.getString("image"),
                         orderJson.getString("ProductName"),
@@ -52,7 +52,7 @@ class OrderDetailApi {
             return productList.toTypedArray()
         }
 
-        internal fun downloadImage(context: Context, product: Orderdetails) {
+        internal fun downloadImage(context: Context, product: orderdetails) {
             val url = URL("$API_URL/images/${product.productimage}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"

@@ -11,6 +11,10 @@
         android:title="@string/menu_order"
         android:icon="@drawable/ic_order" />
     <item
+        android:id="@+id/menucart"
+        android:title="@string/cart"
+        android:icon="@drawable/ic_cart" />
+    <item
         android:id="@+id/menuwishlist"
         android:title="@string/menu_wishlist"
         android:icon="@drawable/ic_fav" />

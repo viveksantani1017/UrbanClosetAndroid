@@ -98,9 +98,11 @@ class Productapi {
             }
         }
 
-        internal fun getProduct(id: Int): Product? {
+        internal fun getProduct(activity: AppCompatActivity,id: Int): Product? {
+            val prefs = activity.getSharedPreferences("UrbanCloset", AppCompatActivity.MODE_PRIVATE)
+            val userId = prefs.getInt("UserID", 0)
             val productList = arrayListOf<Product>()
-            val url = URL("$API_URL/getproductdetail?productid=$id")
+            val url = URL("$API_URL/getproductdetail?productid=${id}&userid=${userId}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
