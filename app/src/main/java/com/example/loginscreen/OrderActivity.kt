@@ -34,7 +34,7 @@ class OrderActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
             }
-            val orders = OrderApi.getAll()
+            val orders = OrderApi.getAll(this@OrderActivity)
             if (orders.isNotEmpty()) {
                 val adapter = OrderListAdapter(this@OrderActivity, orders)
                 withContext(Dispatchers.Main) { orderlist.adapter = adapter }

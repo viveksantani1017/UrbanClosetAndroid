@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.models.orderdetails
 import org.json.JSONObject
 import java.io.File
@@ -14,12 +15,11 @@ import java.net.URL
 class OrderDetailApi {
 
     companion object {
-        const val API_URL = "http://192.168.1.1:8084/UrbanClosetApache"
 
-        internal fun getAll(id:Int): Array<orderdetails> {
+        internal fun getAll(id:Int,context: Context): Array<orderdetails> {
             val productList = arrayListOf<orderdetails>()
-
-            val url = URL("$API_URL/orderwisedetail?userid=2&orderid=${id}")
+            val userid = context.getSharedPreferences("UrbanCloset",AppCompatActivity.MODE_PRIVATE).getInt("UserID",0)
+            val url = URL("${Productapi.API_URL}/orderwisedetail?userid=${userid}&orderid=${id}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
@@ -53,7 +53,7 @@ class OrderDetailApi {
         }
 
         internal fun downloadImage(context: Context, product: orderdetails) {
-            val url = URL("$API_URL/images/${product.productimage}")
+            val url = URL("${Productapi.API_URL}/images/${product.productimage}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true

@@ -21,16 +21,15 @@ class orderDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_order_detail)
         supportActionBar?.setTitle("Order Detail")
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-
-
         val grdProducts = findViewById<GridView>(R.id.card)
         CoroutineScope(Dispatchers.IO).launch {
             val Intent = intent
             val orderid = Intent.getIntExtra("OrderId", 0)
-            val orderedproducts =  OrderDetailApi.getAll(orderid)
+            val orderedproducts =  OrderDetailApi.getAll(orderid,this@orderDetailActivity)
             if (orderedproducts.isNotEmpty()) {
-
-
+                for (product in orderedproducts) {
+                    OrderDetailApi.downloadImage(this@orderDetailActivity, product)
+                }
                     val adapter = OrderDetailAdapter(this@orderDetailActivity, orderedproducts)
                     withContext(Dispatchers.Main) { grdProducts.adapter = adapter }
                 }

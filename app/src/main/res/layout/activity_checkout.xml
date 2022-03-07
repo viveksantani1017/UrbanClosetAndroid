@@ -11,12 +11,78 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/totalcard"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="10sp"
         android:layout_marginHorizontal="20dp"
-        android:verticalSpacing="20sp"
+        android:paddingBottom="65sp"
+        android:paddingTop="65sp"
+        android:verticalSpacing="5sp"
         android:horizontalSpacing="20sp"
         android:numColumns="1"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        />
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/totalcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btnplaceorder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginVertical="20sp"
+        android:layout_marginHorizontal="20sp"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/tvaddress"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10sp"
+                android:text="@string/delivery_address"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/address"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvaddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/btnchangeaddress"
+                android:layout_marginHorizontal="20sp"
+                android:textStyle="normal"
+                />
+            <Button
+                android:id="@+id/btnchangeaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/change_naddress"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+    <Button
+        android:id="@+id/btnplaceorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/totalcard"
+        android:layout_marginVertical="10sp"
+        android:text="@string/place_order"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

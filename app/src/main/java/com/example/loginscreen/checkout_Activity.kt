@@ -4,12 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.GridView
+import android.widget.TextView
 import android.widget.Toast
 import com.example.loginscreen.adapters.checkoutlistAdapter
-import com.example.loginscreen.api.CartApi
 import com.example.loginscreen.api.Productapi
-import com.example.loginscreen.api.checkoutApi
+import com.example.loginscreen.api.CheckoutApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -23,14 +24,19 @@ class checkout_Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
-
+        supportActionBar!!.setTitle("Checkout")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val orderlist = findViewById<GridView>(R.id.orderlist)
 
         CoroutineScope(Dispatchers.IO).launch {
-            val orders = checkoutApi.getAll()
+            val orders = CheckoutApi.getAll(this@checkout_Activity)
+            val address = CheckoutApi.getExtraInfo(this@checkout_Activity)
             if (orders.isNotEmpty()) {
                 val adapter = checkoutlistAdapter(this@checkout_Activity, orders)
-                withContext(Dispatchers.Main) { orderlist.adapter = adapter }
+                withContext(Dispatchers.Main) {
+                    orderlist.adapter = adapter
+                    findViewById<TextView>(R.id.address).text = address[0]
+                }
             } else {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
@@ -39,6 +45,28 @@ class checkout_Activity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     )
                         .show()
+                }
+            }
+        }
+        findViewById<Button>(R.id.btnplaceorder).setOnClickListener {
+            CoroutineScope(Dispatchers.IO).launch {
+                val extrainfo = CheckoutApi.getExtraInfo(this@checkout_Activity)
+                val response = placeOrder(extrainfo.get(2).toInt())
+                if (response.getBoolean("status")) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(this@checkout_Activity, "Order Placed", Toast.LENGTH_SHORT)
+                            .show()
+                        startActivity(Intent(this@checkout_Activity, OrderActivity::class.java))
+                        finish()
+                    }
+                } else {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@checkout_Activity,
+                            "Error In Placing Order",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
         }
@@ -69,26 +97,10 @@ class checkout_Activity : AppCompatActivity() {
         }
         return JSONObject()
     }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
 }
 
-
-
-
-//CoroutineScope(Dispatchers.IO).launch {
-//    val cartid = CartApi.getTotalPrice(this@CartActivity)
-//    val response = placeOrder(cartid[1])
-//    if(response.getBoolean("status"))
-//    {
-//        withContext(Dispatchers.Main){
-//            Toast.makeText(this@CartActivity, response.getString("message"), Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this@CartActivity,checkout_Activity::class.java)
-//            startActivity(intent)
-//        }
-//    }
-//    else
-//    {
-//        withContext(Dispatchers.Main){
-//            Toast.makeText(this@CartActivity, response.getString("message"), Toast.LENGTH_SHORT).show()
-//        }
-//    }
-//}

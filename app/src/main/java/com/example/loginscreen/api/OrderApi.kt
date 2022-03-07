@@ -1,5 +1,7 @@
 package com.example.loginscreen.api
 
+import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.models.Order
 import org.json.JSONObject
 import java.net.HttpURLConnection
@@ -8,11 +10,11 @@ import java.net.URL
 class OrderApi {
 
     companion object {
-        internal fun getAll() : Array<Order>
+        internal fun getAll(context: Context) : Array<Order>
         {
             val orderList = arrayListOf<Order>()
-
-            val url = URL("${Productapi.API_URL}/getorder?userid=2")
+            val userid = context.getSharedPreferences("UrbanCloset",AppCompatActivity.MODE_PRIVATE).getInt("UserID",0)
+            val url = URL("${Productapi.API_URL}/getorder?userid=${userid}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true

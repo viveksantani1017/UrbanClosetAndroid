@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.models.Product
-import com.example.loginscreen.models.checkout
+import com.example.loginscreen.models.Checkout
 import org.json.JSONObject
 import java.io.File
 import java.io.FileOutputStream
@@ -19,8 +19,8 @@ class CartApi {
     companion object {
 
 
-        internal fun getAll(context: Context): Array<checkout> {
-            val checkoutlist = arrayListOf<checkout>()
+        internal fun getAll(context: Context): Array<Checkout> {
+            val checkoutlist = arrayListOf<Checkout>()
             val userid = context.getSharedPreferences("UrbanCloset", AppCompatActivity.MODE_PRIVATE)
                 .getInt("UserID", 0)
 
@@ -38,16 +38,15 @@ class CartApi {
 
                 var i = 0
                 while (i < orderJsonArray.length()) {
-                    val orderJson = orderJsonArray.getJSONObject(i)
-                    val orderdata = checkout(
+                    val orderJson: JSONObject = orderJsonArray.getJSONObject(i)
+                    val orderdata = Checkout(
                         orderJson.getInt("orderedproductid"),
-                        orderJson.getString("image"),
-                        orderJson.getInt("TotalPrice"),
                         orderJson.getString("ProductName"),
+                        orderJson.getString("image"),
                         orderJson.getString("Size"),
+                        orderJson.getString("TotalPrice"),
                         orderJson.getInt("Quantity"),
-                        orderJson.getString("ProductPrice"),
-                        orderJson.getString("Address")
+                        orderJson.getInt("productid")
                     )
                     checkoutlist.add(orderdata)
                     i++
@@ -111,6 +110,34 @@ class CartApi {
             }
 
             return responseArray
+        }
+        internal fun updatecart(
+            quantity: String,
+            size: String,
+            userid: Int,
+            productid: Int
+        ): JSONObject {
+            val url =
+                URL("${Productapi.API_URL}/addtocart?productid=${productid}&userid=${userid}&quantity=${quantity}&size=${size}")
+            val connection = (url.openConnection() as HttpURLConnection).apply {
+                requestMethod = "POST"
+                doInput = true
+                setRequestProperty("Content-Type", "Application/json")
+                setChunkedStreamingMode(0)
+            }
+
+            try {
+                if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+                    val reader = connection.inputStream.bufferedReader()
+                    val jsonResponseString = reader.readText()
+                    return JSONObject(jsonResponseString)
+                }
+            } catch (Ex: Exception) {
+                Log.i("Add to Cart Error", Ex.message.toString())
+            } finally {
+                connection.disconnect()
+            }
+            return JSONObject()
         }
     }
 }

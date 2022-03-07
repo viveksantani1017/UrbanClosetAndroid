@@ -37,6 +37,9 @@
     <string name="cart">Cart</string>
     <string name="rupeetext">₹</string>
     <string name="checkout">CHECKOUT</string>
+    <string name="place_order">Place Order</string>
+    <string name="change_naddress">Change\nAddress</string>
+    <string name="delivery_address">Delivery Address</string>
 
     <string-array name="size_menu">
         <item>M</item>

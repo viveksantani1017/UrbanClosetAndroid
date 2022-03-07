@@ -117,10 +117,10 @@ class MainActivity : AppCompatActivity() {
             val categorywomen = Categoryapi.getWomens()
             val newproduct = NewProductApi.getAll()
             if (categorymen.isNotEmpty() && categorywomen.isNotEmpty()) {
-//                for (category in categorymen)
-//                    Categoryapi.downloadImage(this@MainActivity, category)
-//                for (category in categorywomen)
-//                    Categoryapi.downloadImage(this@MainActivity, category)
+                for (category in categorymen)
+                    Categoryapi.downloadImage(this@MainActivity, category)
+                for (category in categorywomen)
+                    Categoryapi.downloadImage(this@MainActivity, category)
 //                for (product in newproduct)
 //                    NewProductApi.downloadImage(this@MainActivity,product)
 
