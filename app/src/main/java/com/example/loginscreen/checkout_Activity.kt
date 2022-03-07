@@ -48,7 +48,7 @@ class checkout_Activity : AppCompatActivity() {
                 }
             }
         }
-        findViewById<Button>(R.id.btnplaceorder).setOnClickListener {
+        findViewById<Button>(R.id.btncheckout).setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 val extrainfo = CheckoutApi.getExtraInfo(this@checkout_Activity)
                 val response = placeOrder(extrainfo.get(2).toInt())

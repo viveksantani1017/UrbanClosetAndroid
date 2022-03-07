@@ -26,7 +26,7 @@
         android:id="@+id/totalcard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/btnplaceorder"
+        app:layout_constraintBottom_toTopOf="@id/btncheckout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginVertical="20sp"
@@ -59,7 +59,7 @@
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
     <Button
-        android:id="@+id/btnplaceorder"
+        android:id="@+id/btncheckout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,5 +67,26 @@
         android:layout_marginVertical="20sp"
         android:text="@string/checkout"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        />
+    <TextView
+        android:id="@+id/ErrorInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnlogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        style="@style/TextAppearance.AppCompat.Large"
+        />
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ErrorInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

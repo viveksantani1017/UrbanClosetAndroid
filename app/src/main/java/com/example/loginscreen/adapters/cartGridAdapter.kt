@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.loginscreen.R
 import com.example.loginscreen.api.CartApi
+import com.example.loginscreen.api.CheckoutApi
 import com.example.loginscreen.models.Checkout
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -55,6 +56,27 @@ class cartGridAdapter(
                 {
                     withContext(Dispatchers.Main){
                         Toast.makeText(activity, response.getString("message"), Toast.LENGTH_SHORT).show()
+                        activity.recreate()
+                    }
+                }
+                else
+                {
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(activity, response.getString("message"), Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+        viewHolder.btnremove.setOnClickListener {
+            val productid = view?.contentDescription.toString().toInt()
+            CoroutineScope(Dispatchers.IO).launch {
+                val extrainfo = CartApi.getTotalPrice(activity)
+                val response = CartApi.deletecart(productid,extrainfo[1])
+                if(response.getBoolean("status"))
+                {
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(activity, response.getString("message"), Toast.LENGTH_SHORT).show()
+                        activity.recreate()
                     }
                 }
                 else

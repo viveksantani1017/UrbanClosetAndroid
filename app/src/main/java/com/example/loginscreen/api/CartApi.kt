@@ -139,5 +139,31 @@ class CartApi {
             }
             return JSONObject()
         }
+        internal fun deletecart(
+            productid: Int,
+            orderid: Int
+        ): JSONObject {
+            val url =
+                URL("${Productapi.API_URL}/deletecart?productid=${productid}&orderid=${orderid}")
+            val connection = (url.openConnection() as HttpURLConnection).apply {
+                requestMethod = "GET"
+                doInput = true
+                setRequestProperty("Content-Type", "Application/json")
+                setChunkedStreamingMode(0)
+            }
+
+            try {
+                if (connection.responseCode == HttpURLConnection.HTTP_OK) {
+                    val reader = connection.inputStream.bufferedReader()
+                    val jsonResponseString = reader.readText()
+                    return JSONObject(jsonResponseString)
+                }
+            } catch (Ex: Exception) {
+                Log.i("Add to Cart Error", Ex.message.toString())
+            } finally {
+                connection.disconnect()
+            }
+            return JSONObject()
+        }
     }
 }

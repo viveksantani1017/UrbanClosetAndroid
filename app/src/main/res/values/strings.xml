@@ -40,6 +40,8 @@
     <string name="place_order">Place Order</string>
     <string name="change_naddress">Change\nAddress</string>
     <string name="delivery_address">Delivery Address</string>
+    <string name="emptycart">Your Cart Is Empty\nAdd Products To Cart</string>
+    <string name="loginerrorcart">Login To See\nYour Cart</string>
 
     <string-array name="size_menu">
         <item>M</item>
