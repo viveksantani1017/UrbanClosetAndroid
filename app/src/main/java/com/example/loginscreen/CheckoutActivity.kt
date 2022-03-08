@@ -20,19 +20,19 @@ import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
 
-class checkout_Activity : AppCompatActivity() {
+class CheckoutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
-        supportActionBar!!.setTitle("Checkout")
+        supportActionBar!!.title = "Checkout"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val orderlist = findViewById<GridView>(R.id.orderlist)
 
         CoroutineScope(Dispatchers.IO).launch {
-            val orders = CheckoutApi.getAll(this@checkout_Activity)
-            val address = CheckoutApi.getExtraInfo(this@checkout_Activity)
+            val orders = CheckoutApi.getAll(this@CheckoutActivity)
+            val address = CheckoutApi.getExtraInfo(this@CheckoutActivity)
             if (orders.isNotEmpty()) {
-                val adapter = checkoutlistAdapter(this@checkout_Activity, orders)
+                val adapter = checkoutlistAdapter(this@CheckoutActivity, orders)
                 withContext(Dispatchers.Main) {
                     orderlist.adapter = adapter
                     findViewById<TextView>(R.id.address).text = address[0]
@@ -40,7 +40,7 @@ class checkout_Activity : AppCompatActivity() {
             } else {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
-                        this@checkout_Activity,
+                        this@CheckoutActivity,
                         "Empty Order Array",
                         Toast.LENGTH_SHORT
                     )
@@ -50,19 +50,19 @@ class checkout_Activity : AppCompatActivity() {
         }
         findViewById<Button>(R.id.btncheckout).setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
-                val extrainfo = CheckoutApi.getExtraInfo(this@checkout_Activity)
-                val response = placeOrder(extrainfo.get(2).toInt())
+                val extrainfo = CheckoutApi.getExtraInfo(this@CheckoutActivity)
+                val response = placeOrder(extrainfo[2].toInt())
                 if (response.getBoolean("status")) {
                     withContext(Dispatchers.Main) {
-                        Toast.makeText(this@checkout_Activity, "Order Placed", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@CheckoutActivity, "Order Placed", Toast.LENGTH_SHORT)
                             .show()
-                        startActivity(Intent(this@checkout_Activity, OrderActivity::class.java))
+                        startActivity(Intent(this@CheckoutActivity, OrderActivity::class.java))
                         finish()
                     }
                 } else {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
-                            this@checkout_Activity,
+                            this@CheckoutActivity,
                             "Error In Placing Order",
                             Toast.LENGTH_SHORT
                         ).show()
@@ -70,7 +70,9 @@ class checkout_Activity : AppCompatActivity() {
                 }
             }
         }
-
+        findViewById<Button>(R.id.btnchangeaddress).setOnClickListener {
+            startActivity(Intent(this,EditProfileAcitvity::class.java))
+        }
 
     }
 

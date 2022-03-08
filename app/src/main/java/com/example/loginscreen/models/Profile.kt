@@ -6,4 +6,5 @@ data class Profile(
     var Useremail: String,
     var Address1: String,
     var UserPhNo: String,
+    var UserAddress:String
 )

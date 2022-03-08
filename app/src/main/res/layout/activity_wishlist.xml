@@ -7,16 +7,19 @@
     tools:context=".wishlist"
     android:padding="8sp">
 
-<GridView
-    android:id="@+id/wishlistfgrid"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:verticalSpacing="20sp"
-    android:horizontalSpacing="20sp"
-    android:numColumns="1"
-    android:paddingHorizontal="10sp"
-    />
+
+    <GridView
+        android:id="@+id/wishlistgrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
+        android:verticalSpacing="5sp"
+        android:horizontalSpacing="20sp"
+        android:numColumns="1"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -101,7 +101,7 @@
                 android:text="@string/newest_collection"
                 android:textSize="20sp"
                 style="@style/textview_style"
-                app:layout_constraintBottom_toTopOf="@id/horizontalScrollView"
+                app:layout_constraintBottom_toTopOf="@id/grdProductsnewest"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/grdProductswomen"
@@ -109,35 +109,50 @@
                 />
 
 
-            <HorizontalScrollView
+<!--            <HorizontalScrollView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/horizontalScrollView"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/tv_newest"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/btnscroll"-->
+<!--                android:scrollbars="none"-->
+<!--                android:layout_marginBottom="20sp"-->
+<!--                >-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    >-->
+
+<!--                </LinearLayout>-->
+
+
+
+<!--            </HorizontalScrollView>-->
+            <GridView
+                android:id="@+id/grdProductsnewest"
+                android:numColumns="2"
+                android:verticalSpacing="10dp"
+                android:horizontalSpacing="10dp"
+                android:stretchMode="columnWidth"
+                android:gravity="center"
+                android:layout_marginHorizontal="10sp"
+                android:paddingVertical="10sp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/horizontalScrollView"
+                android:layout_height="match_parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_newest"
-                app:layout_constraintBottom_toBottomOf="@id/btnscroll"
-                android:scrollbars="none"
-                android:layout_marginBottom="20sp"
-                >
+                app:layout_constraintStart_toStartOf="parent"
+                android:scrollbarThumbVertical="@android:color/transparent"
+                />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-
-                </LinearLayout>
-
-
-
-            </HorizontalScrollView>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnscroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
+                app:layout_constraintTop_toBottomOf="@id/grdProductsnewest"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 android:text="@string/scroll_to_top"
                 app:cornerRadius="30sp"
                 app:icon="@drawable/ic_arrow_upward_black_18dp"
@@ -145,22 +160,6 @@
                 android:backgroundTint="?colorOnPrimary"
                 android:textColor="?colorPrimary"
                 />
-<!--            <GridView-->
-<!--            app:layout_constraintTop_toBottomOf="@id/btnscroll"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--            android:layout_marginVertical="20sp"-->
-<!--            android:id="@+id/grdProductsnewest"-->
-<!--            android:numColumns="auto_fit"-->
-<!--            android:verticalSpacing="10dp"-->
-<!--            android:horizontalSpacing="10dp"-->
-<!--            android:stretchMode="columnWidth"-->
-<!--            android:gravity="center"-->
-<!--            android:layout_marginHorizontal="10sp"-->
-<!--            android:paddingVertical="10sp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:scrollbarThumbVertical="@android:color/transparent"-->
-<!--            />-->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

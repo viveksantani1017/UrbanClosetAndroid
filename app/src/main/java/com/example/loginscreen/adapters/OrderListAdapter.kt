@@ -34,7 +34,7 @@ class OrderListAdapter(
         }
 
         viewHolder.status.text = objects[position].orderstatus
-        viewHolder.totalprice.text = objects[position].totalprice.toString()
+        viewHolder.totalprice.text = "₹"+objects[position].totalprice.toString()
         viewHolder.date.text = objects[position].date
         viewHolder.ordernumber.text = objects[position].ordernumber.toString()
 

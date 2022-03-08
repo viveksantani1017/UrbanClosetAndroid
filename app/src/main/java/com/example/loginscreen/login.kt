@@ -88,17 +88,13 @@ class login : AppCompatActivity() {
             setChunkedStreamingMode(0)
         }
         try {
-//            Creating json object to put data
             val jsonObject = JSONObject()
             jsonObject.put("name", username)
             jsonObject.put("pass", password)
-//            writing data to url
             val writer = connection.outputStream.bufferedWriter()
             writer.write(jsonObject.toString())
             writer.flush()
-//            Checking if url is read and response is sent or not
             if (connection.responseCode == HttpURLConnection.HTTP_OK) {
-//                reading the response data
                 val reader = connection.inputStream.bufferedReader()
                 val jsonResponseString = reader.readText()
                 val responseJson = JSONObject(jsonResponseString)

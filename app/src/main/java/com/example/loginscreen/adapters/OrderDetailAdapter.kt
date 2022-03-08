@@ -40,7 +40,7 @@ class OrderDetailAdapter(
         viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}/images/${objects[position].productimage}"))
         viewHolder.name.text = objects[position].productName
         viewHolder.size.text = objects[position].size
-        viewHolder.totalprice.text = objects[position].totalPrice.toString()
+        viewHolder.totalprice.text ="₹"+objects[position].totalPrice.toString()
         viewHolder.quantity.text = objects[position].quantity
 
         view?.contentDescription = objects[position].id.toString()

@@ -65,7 +65,7 @@ class CartActivity : AppCompatActivity() {
             }
         }
         findViewById<Button>(R.id.btncheckout).setOnClickListener {
-                val intent = Intent(this,checkout_Activity::class.java)
+                val intent = Intent(this,CheckoutActivity::class.java)
                 startActivity(intent)
         }
     }

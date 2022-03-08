@@ -83,7 +83,7 @@ class ProductGridAdapter(
         }
 
         viewHolder.name.text = objects[position].name
-        viewHolder.price.text = objects[position].price.toString()
+        viewHolder.price.text = "₹"+objects[position].price.toString()
         viewHolder.categoryName.text = objects[position].categoryname
         viewHolder.image.setImageURI(Uri.parse("${activity.externalCacheDir}/images/${objects[position].images[0]}"))
 

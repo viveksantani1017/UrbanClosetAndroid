@@ -32,9 +32,9 @@ class CheckoutApi {
                     val orderdata = Checkout(
                         orderJson.getInt("orderedproductid"),
                         orderJson.getString("ProductName"),
-                        orderJson.getString("image"),
                         orderJson.getString("Size"),
                         orderJson.getString("TotalPrice"),
+                        orderJson.getString("image"),
                         orderJson.getInt("Quantity"),
                         orderJson.getInt("productid")
                     )

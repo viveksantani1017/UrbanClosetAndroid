@@ -10,6 +10,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.loginscreen.adapters.CategoryGridAdapter
+import com.example.loginscreen.adapters.NewProductAdapter
 import com.example.loginscreen.adapters.ProductGridAdapter
 import com.example.loginscreen.api.Categoryapi
 import com.example.loginscreen.api.NewProductApi
@@ -23,6 +24,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.widget.Toast
+
+
+
 
 class MainActivity : AppCompatActivity() {
     var sampleImages = intArrayOf(
@@ -62,6 +67,12 @@ class MainActivity : AppCompatActivity() {
                     drawer.closeDrawer(GravityCompat.START)
 
             }
+            else if(menuItem.itemId == R.id.menuwishlist) {
+                val intent = Intent(this, wishlist::class.java)
+                startActivity(intent)
+                drawer.closeDrawer(GravityCompat.START)
+
+            }
             else if (menuItem.itemId == R.id.menuorder) {
                 if (UserId == 0) {
                     MaterialAlertDialogBuilder(this)
@@ -85,8 +96,8 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val horizontalScrollView = findViewById<HorizontalScrollView>(R.id.horizontalScrollView)
-//        val grdProductNewest = horizontalScrollView.findViewById<GridView>(R.id.grdProductsnewest)
+//        val horizontalScrollView = findViewById<HorizontalScrollView>(R.id.horizontalScrollView)
+        val grdProductNewest = findViewById<GridView>(R.id.grdProductsnewest)
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
         val grdProductswomen = findViewById<GridView>(R.id.grdProductswomen)
 
@@ -121,15 +132,16 @@ class MainActivity : AppCompatActivity() {
                     Categoryapi.downloadImage(this@MainActivity, category)
                 for (category in categorywomen)
                     Categoryapi.downloadImage(this@MainActivity, category)
-//                for (product in newproduct)
-//                    NewProductApi.downloadImage(this@MainActivity,product)
+                for (product in newproduct)
+                    NewProductApi.downloadImage(this@MainActivity,product)
 
                 val adaptermen = CategoryGridAdapter(this@MainActivity, categorymen)
                 withContext(Dispatchers.Main) { grdProducts.adapter = adaptermen }
                 val adapterwomen = CategoryGridAdapter(this@MainActivity, categorywomen)
                 withContext(Dispatchers.Main) { grdProductswomen.adapter = adapterwomen }
-//                var adapternewproduct = ProductGridAdapter(this@MainActivity,newproduct)
-//                withContext(Dispatchers.Main){grdProductNewest.adapter = adapternewproduct}
+                var adapternewproduct = NewProductAdapter(this@MainActivity,newproduct)
+                withContext(Dispatchers.Main){
+                    grdProductNewest.adapter = adapternewproduct}
             } else {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@MainActivity, "Empty Category Array", Toast.LENGTH_SHORT)
@@ -164,4 +176,5 @@ class MainActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.settingsmenu, menu)
         return true
     }
+
 }

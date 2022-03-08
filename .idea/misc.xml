@@ -37,6 +37,7 @@
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_cart.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_checkout.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/activity_edit_profile_acitvity.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_main.xml" value="0.2225" />
@@ -45,7 +46,7 @@
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_product_list.xml" value="0.25" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_productdetails.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_productlist.xml" value="0.24635416666666668" />
-        <entry key="..\:/androidproject/app/src/main/res/layout/activity_profile.xml" value="0.176" />
+        <entry key="..\:/androidproject/app/src/main/res/layout/activity_profile.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_singupscreen.xml" value="0.5223068552774756" />
         <entry key="..\:/androidproject/app/src/main/res/layout/activity_test.xml" value="0.25" />

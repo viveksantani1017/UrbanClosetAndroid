@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".checkout_Activity"
+    tools:context=".CheckoutActivity"
     android:background="#f5f5f5">
     <GridView
         android:id="@+id/orderlist"

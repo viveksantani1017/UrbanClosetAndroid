@@ -11,10 +11,9 @@ class ProfileApi {
 
     companion object {
 
-        internal fun getAll(id:Int): Array<Profile> {
+        internal fun getAll(id:Int): Profile {
             val profile = arrayListOf<Profile>()
-
-            val url = URL("${Productapi.API_URL}/getproduct?catid=$id")
+            val url = URL("${Productapi.API_URL}/getuser?userid=$id")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
@@ -24,25 +23,19 @@ class ProfileApi {
             if (connection.responseCode == HttpURLConnection.HTTP_OK) {
                 val reader = connection.inputStream.bufferedReader()
                 val responseJson = JSONObject(reader.readText())
-                val profileJson = responseJson.getJSONArray("Profile")
+                val profileJson = responseJson.getJSONObject("User")
 
-                var i = 0
-                while (i < profileJson.length()) {
-                    val ProfileJson = profileJson.getJSONObject(i)
-                    val productdata = Profile(
-                        ProfileJson.getInt("Userid"),
-                        ProfileJson.getString("UserName"),
-                        ProfileJson.getString("UserEmail"),
-                        ProfileJson.getString("Address1"),
-                        ProfileJson.getString("UserPhNo")
+                    return Profile(
+                        profileJson.getInt("Userid"),
+                        profileJson.getString("UserName"),
+                        profileJson.getString("UserEmail"),
+                        profileJson.getString("Address1"),
+                        profileJson.getString("UserPhNo"),
+                        profileJson.getString("Address1")
                     )
-                    profile.add(productdata)
-
-                    i++
-                }
             }
 
-            return profile.toTypedArray()
+            return null!!
         }
     }
 }

@@ -51,70 +51,94 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20sp"
                 android:layout_marginTop="50sp"
-                android:text="Name"
+                android:text="@string/name"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/etname"
+            <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="John Doe"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/tvname"
-                app:layout_constraintTop_toBottomOf="@id/tvname" />
+                app:layout_constraintTop_toBottomOf="@id/tvname"
+                android:backgroundTint="@android:color/background_light"
+                />
 
             <TextView
                 android:id="@+id/tvemail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10sp"
-                android:text="Email Address"
+                android:text="@string/email_address"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@id/tvname"
-                app:layout_constraintTop_toBottomOf="@id/etname" />
+                app:layout_constraintTop_toBottomOf="@id/name" />
 
-            <EditText
-                android:id="@+id/etemail"
+
+            <TextView
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/background_light"
-                android:text="johndoe@gmail.com"
-                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/tvname"
-                app:layout_constraintTop_toBottomOf="@id/tvemail" />
-
+                app:layout_constraintTop_toBottomOf="@id/tvemail"
+                android:enabled="false"
+                android:backgroundTint="@android:color/background_light"
+                android:textColor="@color/black" />
             <TextView
                 android:id="@+id/tvphone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10sp"
-                android:text="Phone Number"
+                android:text="@string/phone_number"
                 android:textSize="18sp"
-
                 app:layout_constraintStart_toStartOf="@id/tvname"
-                app:layout_constraintTop_toBottomOf="@id/etemail" />
+                app:layout_constraintTop_toBottomOf="@id/email" />
 
-            <EditText
-                android:id="@+id/etphone"
+            <TextView
+                android:id="@+id/phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="1234567890"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@id/tvname"
-                app:layout_constraintTop_toBottomOf="@id/tvphone" />
+                app:layout_constraintTop_toBottomOf="@id/tvphone"
+                android:backgroundTint="@android:color/background_light"
+                />
+
+            <TextView
+                android:id="@+id/tvaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:text="@string/address"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/phone" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@id/tvname"
+                app:layout_constraintTop_toBottomOf="@id/tvaddress"
+                android:backgroundTint="@android:color/background_light"
+                />
+
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnedit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20sp"
-                android:text="Edit"
+                android:text="@string/edit"
                 app:icon="@android:drawable/ic_menu_edit"
                 app:iconSize="20sp"
                 app:layout_constraintStart_toStartOf="@id/tvname"
-                app:layout_constraintTop_toBottomOf="@id/etphone" />
+                app:layout_constraintTop_toBottomOf="@id/address" />
         </androidx.constraintlayout.widget.ConstraintLayout>
         <!--        Buttons-->
 

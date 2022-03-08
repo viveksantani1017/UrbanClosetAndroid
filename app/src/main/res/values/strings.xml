@@ -38,10 +38,16 @@
     <string name="rupeetext">₹</string>
     <string name="checkout">CHECKOUT</string>
     <string name="place_order">Place Order</string>
-    <string name="change_naddress">Change\nAddress</string>
+    <string name="change_naddress">Change Address</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="emptycart">Your Cart Is Empty\nAdd Products To Cart</string>
     <string name="loginerrorcart">Login To See\nYour Cart</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email_address">Email Address</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="edit">Edit</string>
+    <string name="submit_changes">Submit Changes</string>
 
     <string-array name="size_menu">
         <item>M</item>
