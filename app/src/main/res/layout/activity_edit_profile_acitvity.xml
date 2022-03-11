@@ -5,38 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EditProfileAcitvity">
-    <View
-        android:id="@+id/backgorundimg"
-        android:layout_width="match_parent"
-        android:layout_height="280sp"
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userimg"
+        android:layout_width="100sp"
+        android:layout_height="100sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/proflie"
-        android:alpha="0.6"
+        android:layout_marginTop="68sp"
+        android:src="@drawable/proflie"
+        android:elevation="20sp"
         />
-<!--    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--        android:id="@+id/userimg"-->
-<!--        android:layout_width="100sp"-->
-<!--        android:layout_height="100sp"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        android:layout_marginTop="180sp"-->
-<!--        android:src="@drawable/proflie"-->
-<!--        android:elevation="20sp"-->
-<!--        />-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20sp"
         app:cardElevation="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:cardCornerRadius="10sp"
         >
 
@@ -52,7 +43,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="50sp"
+                android:layout_marginTop="60sp"
                 android:layout_marginStart="20sp"
                 android:layout_marginEnd="20sp"
                 app:boxStrokeColor="?colorPrimary"

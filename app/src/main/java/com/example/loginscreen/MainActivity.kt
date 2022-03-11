@@ -11,12 +11,8 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.loginscreen.adapters.CategoryGridAdapter
 import com.example.loginscreen.adapters.NewProductAdapter
-import com.example.loginscreen.adapters.ProductGridAdapter
 import com.example.loginscreen.api.Categoryapi
 import com.example.loginscreen.api.NewProductApi
-import com.example.loginscreen.api.Productapi
-import com.example.loginscreen.models.Category
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
@@ -30,7 +26,7 @@ import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity() {
-    var sampleImages = intArrayOf(
+    private var sampleImages = intArrayOf(
         R.drawable.menbanner,
         R.drawable.womenbanner,
     )
@@ -44,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val pref = getSharedPreferences("UrbanCloset", MODE_PRIVATE)
-        val UserId = pref.getInt("UserID", 0)
+        val userId = pref.getInt("UserID", 0)
         drawer = findViewById(R.id.drawer)
         drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
 
@@ -55,41 +51,54 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         navigationView = findViewById(R.id.navView)
+        val menu = navigationView.menu
+        val login = menu.findItem(R.id.menulogin)
+        val logout = menu.findItem(R.id.menulogout)
+        if(userId !=0)
+        {
+            logout.isVisible = true
+            login.isVisible = false
+        }
+        else
+        {
+            logout.isVisible = false
+            login.isVisible = true
+        }
+
         navigationView.setNavigationItemSelectedListener { menuItem ->
-            if (menuItem.itemId == R.id.menuprofile) {
-                val intent = Intent(this, ProfileActivity::class.java)
-                startActivity(intent)
-                drawer.closeDrawer(GravityCompat.START)
-            }
-            else if(menuItem.itemId == R.id.menucart) {
+            when (menuItem.itemId) {
+                R.id.menuprofile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    drawer.closeDrawer(GravityCompat.START)
+                }
+                R.id.menucart -> {
                     val intent = Intent(this, CartActivity::class.java)
                     startActivity(intent)
                     drawer.closeDrawer(GravityCompat.START)
 
-            }
-            else if(menuItem.itemId == R.id.menuwishlist) {
-                val intent = Intent(this, wishlist::class.java)
-                startActivity(intent)
-                drawer.closeDrawer(GravityCompat.START)
-
-            }
-            else if (menuItem.itemId == R.id.menuorder) {
-                if (UserId == 0) {
-                    MaterialAlertDialogBuilder(this)
-                        .setTitle("Log In To See Your Orders")
-                        .setNeutralButton("cancel") { dialog, which ->
-                            closeContextMenu()
-                        }
-                        .setPositiveButton("Login") { dialog, which ->
-                            val intent = Intent(this, login::class.java)
-                            startActivity(intent)
-                        }
-                        .show()
-                } else {
-                    val intent = Intent(this, OrderActivity::class.java)
+                }
+                R.id.menuwishlist -> {
+                    val intent = Intent(this, wishlist::class.java)
                     startActivity(intent)
                     drawer.closeDrawer(GravityCompat.START)
 
+                }
+                R.id.menuorder -> {
+                    val intent = Intent(this, OrderActivity::class.java)
+                    startActivity(intent)
+                    drawer.closeDrawer(GravityCompat.START)
+                }
+                R.id.menulogin -> {
+                    val intent = Intent(this, com.example.loginscreen.login::class.java)
+                    startActivity(intent)
+                    drawer.closeDrawer(GravityCompat.START)
+                }
+                R.id.menulogout -> {
+                    pref.edit().remove("UserID").apply()
+                    this.recreate()
+                    Toast.makeText(this, "Logged Out Successfully", Toast.LENGTH_SHORT).show()
+                    drawer.closeDrawer(GravityCompat.START)
                 }
             }
             true
@@ -101,8 +110,8 @@ class MainActivity : AppCompatActivity() {
         val grdProducts = findViewById<GridView>(R.id.grdProducts)
         val grdProductswomen = findViewById<GridView>(R.id.grdProductswomen)
 
-        val carouselView = findViewById(R.id.carouselView) as CarouselView
-        carouselView.setPageCount(sampleImages.size)
+        val carouselView = findViewById<CarouselView>(R.id.carouselView)
+        carouselView.pageCount = sampleImages.size
         carouselView.setImageListener(imageListener)
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -139,7 +148,7 @@ class MainActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) { grdProducts.adapter = adaptermen }
                 val adapterwomen = CategoryGridAdapter(this@MainActivity, categorywomen)
                 withContext(Dispatchers.Main) { grdProductswomen.adapter = adapterwomen }
-                var adapternewproduct = NewProductAdapter(this@MainActivity,newproduct)
+                val adapternewproduct = NewProductAdapter(this@MainActivity,newproduct)
                 withContext(Dispatchers.Main){
                     grdProductNewest.adapter = adapternewproduct}
             } else {
@@ -152,13 +161,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    var imageListener: ImageListener = object : ImageListener {
-        override fun setImageForPosition(position: Int, imageView: ImageView) {
-            imageView.setImageResource(sampleImages[position])
-        }
-
-
-    }
+    private var imageListener: ImageListener =
+        ImageListener { position, imageView -> imageView.setImageResource(sampleImages[position]) }
 
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

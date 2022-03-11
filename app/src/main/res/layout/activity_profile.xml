@@ -6,16 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
-    <View
-        android:id="@+id/backgorundimg"
-        android:layout_width="match_parent"
-        android:layout_height="280sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@drawable/proflie"
-        android:alpha="0.6"
-        />
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/userimg"
         android:layout_width="100sp"
@@ -23,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="180sp"
+        android:layout_marginTop="118sp"
         android:src="@drawable/proflie"
         android:elevation="20sp"
         />
@@ -31,13 +22,13 @@
             android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="220dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20sp"
             app:cardElevation="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
             app:cardCornerRadius="10sp"
             >
 
@@ -61,6 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="@id/tvname"
                 app:layout_constraintTop_toBottomOf="@id/tvname"
                 android:backgroundTint="@android:color/background_light"
@@ -83,6 +75,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="@id/tvname"
                 app:layout_constraintTop_toBottomOf="@id/tvemail"
+                android:textSize="15sp"
                 android:enabled="false"
                 android:backgroundTint="@android:color/background_light"
                 android:textColor="@color/black" />
@@ -102,6 +95,7 @@
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:textColor="@color/black"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="@id/tvname"
                 app:layout_constraintTop_toBottomOf="@id/tvphone"
                 android:backgroundTint="@android:color/background_light"
@@ -123,6 +117,7 @@
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:textColor="@color/black"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="@id/tvname"
                 app:layout_constraintTop_toBottomOf="@id/tvaddress"
                 android:backgroundTint="@android:color/background_light"

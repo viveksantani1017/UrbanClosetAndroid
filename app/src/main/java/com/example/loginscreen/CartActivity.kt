@@ -27,7 +27,7 @@ class CartActivity : AppCompatActivity() {
         val cartlist = findViewById<GridView>(R.id.orderlist)
         totalCard = findViewById(R.id.totalcard)
         btncheckout = findViewById(R.id.btncheckout)
-        btnlogin = findViewById(R.id.btnlogin)
+        btnlogin = findViewById(R.id.btnsignup)
         errorInfo = findViewById(R.id.ErrorInfo)
         supportActionBar!!.setTitle("Cart")
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

@@ -30,7 +30,6 @@
     <string name="date">Date:</string>
     <string name="status">Status:</string>
     <string name="defaultsize">1</string>
-    <string name="logout">Logout</string>
     <string name="login">LogIn</string>
     <string name="women_collection">WOMEN COLLECTION</string>
     <string name="scroll_to_top">Scroll To Top</string>
@@ -41,13 +40,21 @@
     <string name="change_naddress">Change Address</string>
     <string name="delivery_address">Delivery Address</string>
     <string name="emptycart">Your Cart Is Empty\nAdd Products To Cart</string>
+    <string name="emptyWishlist">Your Wishlist Is Empty\nAdd Products To Wishlist</string>
     <string name="loginerrorcart">Login To See\nYour Cart</string>
+    <string name="loginerrorwishlist">Login To See\nYour Wishlist</string>
+    <string name="loginerrororder">Login To See\nYour Order History</string>
+    <string name="emptyorder">Purchase Products To See Your Order History</string>
     <string name="phone_number">Phone Number</string>
     <string name="email_address">Email Address</string>
     <string name="name">Name</string>
     <string name="address">Address</string>
     <string name="edit">Edit</string>
     <string name="submit_changes">Submit Changes</string>
+    <string name="order_history">ORDER HISTORY</string>
+    <string name="urban_closet">URBAN CLOSET</string>
+    <string name="a_store_that_sell_style">A STORE THAT SELL STYLE</string>
+    <string name="logout">Logout</string>
 
     <string-array name="size_menu">
         <item>M</item>

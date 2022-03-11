@@ -79,6 +79,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextusername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -107,6 +108,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edittextpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -142,7 +144,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnlogin"
+        android:id="@+id/btnsignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,9 +160,9 @@
             android:id="@+id/tvsignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="@id/btnlogin"
-            app:layout_constraintStart_toStartOf="@id/btnlogin"
-            app:layout_constraintTop_toBottomOf="@id/btnlogin"
+            app:layout_constraintEnd_toEndOf="@id/btnsignup"
+            app:layout_constraintStart_toStartOf="@id/btnsignup"
+            app:layout_constraintTop_toBottomOf="@id/btnsignup"
             android:text="@string/already_have_an_account_login"
             android:layout_marginTop="10sp"
             android:textSize="18sp"

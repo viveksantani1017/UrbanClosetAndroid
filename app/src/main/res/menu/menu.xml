@@ -23,5 +23,14 @@
         android:title="@string/menu_profile"
         android:icon="@drawable/ic_profile"
         />
-
+    <item
+        android:id="@+id/menulogin"
+        android:title="@string/login"
+        android:icon="@drawable/ic_login"
+        />
+    <item
+        android:id="@+id/menulogout"
+        android:title="@string/logout"
+        android:icon="@drawable/ic_logout"
+        />
 </menu>

@@ -16,10 +16,10 @@ class WishlistApi {
 
     companion object {
 
-        internal fun getAll(): Array<wishlistmodel> {
+        internal fun getAll(id:Int): Array<wishlistmodel> {
             val wishlist = arrayListOf<wishlistmodel>()
 
-            val url = URL("${Productapi.API_URL}/getwishlist?userid=2")
+            val url = URL("${Productapi.API_URL}/getwishlist?userid=${id}")
             val connection = (url.openConnection() as HttpURLConnection).apply {
                 requestMethod = "GET"
                 doInput = true
